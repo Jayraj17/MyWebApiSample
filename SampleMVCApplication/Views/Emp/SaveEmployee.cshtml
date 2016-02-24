@@ -1,0 +1,58 @@
+﻿@model  SampleMapper.EmpDTO
+@{
+    ViewBag.Title = "SaveEmployee";
+}
+
+<h2>SaveEmployee</h2>
+
+@*@using (Html.BeginForm(FormMethod.Post))
+{*@
+
+@using (Html.BeginForm("SaveEmployee", "Emp", FormMethod.Post, new { id = "frmEmpMst" }))
+{
+    @Html.ValidationSummary(true)
+    <table>
+        @Html.HiddenFor(m => m.EmpNo)
+     
+
+        <tr>
+            <td>
+                EmpName :
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.EmpName, new {id="EmpName"})
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Salary :
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Salary, new { id = "Salary" })
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                DeptName :
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.DeptName, new { id = "DeptName" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Designation :
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Designation, new { id = "Designation" })
+            </td>
+        </tr>
+
+    </table>
+
+    <input type="submit" value="Save" class="btn button" formaction="/Emp/SaveEmployee" />
+}

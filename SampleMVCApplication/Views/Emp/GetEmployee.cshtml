@@ -1,0 +1,13 @@
+﻿@model  SampleMapper.EmpDTO
+@{
+    ViewBag.Title = "GetEmployee";
+}
+
+<h2>GetEmployee</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.EmpName, new { tabindex = 1, maxlength = 10, @class = "form-control", placeholder = "EmpName", id = "EmpName" })
+    <br />
+    <input type="submit" value="Submit" formaction="/Emp/GetEmployee" />
+}

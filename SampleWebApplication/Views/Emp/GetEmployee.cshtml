@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployee";
+}
+
+<h2>GetEmployee</h2>
+
+@using (Html.BeginForm("Login", "Logins", FormMethod.Post, new { id = "frmLoginMst" }))
+    {
+    @Html.ValidationSummary(true)
+}
+

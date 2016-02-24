@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApi", "SampleWebApi\SampleWebApi.csproj", "{2370CE8B-61F2-474E-820A-8ABBFFC07BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMapper", "SampleMapper\SampleMapper.csproj", "{FC851AB4-1290-43CB-B4D0-0854507DCFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMVCApplication", "SampleMVCApplication\SampleMVCApplication.csproj", "{110E003D-BB59-4C73-B1DF-E5311AA43B15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2370CE8B-61F2-474E-820A-8ABBFFC07BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2370CE8B-61F2-474E-820A-8ABBFFC07BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2370CE8B-61F2-474E-820A-8ABBFFC07BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2370CE8B-61F2-474E-820A-8ABBFFC07BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC851AB4-1290-43CB-B4D0-0854507DCFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC851AB4-1290-43CB-B4D0-0854507DCFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC851AB4-1290-43CB-B4D0-0854507DCFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC851AB4-1290-43CB-B4D0-0854507DCFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110E003D-BB59-4C73-B1DF-E5311AA43B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110E003D-BB59-4C73-B1DF-E5311AA43B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110E003D-BB59-4C73-B1DF-E5311AA43B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110E003D-BB59-4C73-B1DF-E5311AA43B15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
