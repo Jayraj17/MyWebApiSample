@@ -18,6 +18,7 @@ namespace SampleWebApi.Controllers.EmpCnrl
        
 
         [Route("GetEmpDetails")]
+
         [HttpPost]
         public HttpResponseMessage GetEmpDetails(string EmpName)
         {
