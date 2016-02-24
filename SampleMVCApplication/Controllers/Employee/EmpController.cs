@@ -13,13 +13,11 @@ namespace SampleMVCApplication.Controllers.Employee
     public class EmpController : Controller
     {
         // GET: Emp
-        public ActionResult GetEmployee()
+        public ActionResult Saveee()
         {
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult GetEmployee(EmpDTO objDTO)
+        }              
+        public ActionResult Savee(EmpDTO objDTO)
         {
 
 
@@ -29,7 +27,7 @@ namespace SampleMVCApplication.Controllers.Employee
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = client.GetAsync("api/EmpApi/GetAllByList/").Result;
+                HttpResponseMessage response = client.GetAsync("api/EmpApi/SaveEmployee/").Result;
                 if (!response.IsSuccessStatusCode)
                 {
                     // Error Over Here....!!
@@ -41,31 +39,7 @@ namespace SampleMVCApplication.Controllers.Employee
         }
 
 
-        public ActionResult SaveEmployee()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult SaveEmployee(EmpDTO objDTO)
-        {
-            //if (ModelState.IsValid)
-            //{
-                using (var client = new HttpClient()) 
-                {
-                    client.BaseAddress = new Uri("http://localhost:6198/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    var response = client.PostAsJsonAsync("api/EmpApi/SaveEmployee", objDTO).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                    }
-
-                }
-
-           //}
-
-            return RedirectToAction("GetEmployee");
-        }
+       
 
 
 

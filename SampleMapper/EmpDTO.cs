@@ -8,19 +8,14 @@ namespace SampleMapper
 {
     public class EmpDTO
     {
+
+        public int ResultID { get; set; }
         public int EmpNo { get; set; }
         public string EmpName { get; set; }
         public int Salary { get; set; }
         public string DeptName { get; set; }
         public string Designation { get; set; }
-        //public int Result { get; set; }             
-        public string RId { get; set; }
-        //public virtual RegDTO RegDTO { get; set; }
-
-       }
-
-
-  
+    }
 
 
 }

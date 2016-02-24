@@ -8,7 +8,7 @@
 @*@using (Html.BeginForm(FormMethod.Post))
 {*@
 
-@using (Html.BeginForm("SaveEmployee", "Emp", FormMethod.Post, new { id = "frmEmpMst" }))
+@using (Html.BeginForm("Saveee", "Emp", FormMethod.Post, new { id = "frmEmpMst" }))
 {
     @Html.ValidationSummary(true)
     <table>
@@ -54,5 +54,5 @@
 
     </table>
 
-    <input type="submit" value="Save" class="btn button" formaction="/Emp/SaveEmployee" />
+    <input type="submit" value="Save" class="btn button" formaction="/Emp/Savee" />
 }
