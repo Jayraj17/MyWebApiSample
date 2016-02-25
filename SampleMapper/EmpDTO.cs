@@ -15,6 +15,7 @@ namespace SampleMapper
         public int Salary { get; set; }
         public string DeptName { get; set; }
         public string Designation { get; set; }
+
     }
 
 

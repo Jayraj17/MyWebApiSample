@@ -13,11 +13,12 @@ namespace SampleMVCApplication.Controllers.Employee
     public class EmpController : Controller
     {
         // GET: Emp
-        public ActionResult Saveee()
+        public ActionResult SaveEmployee()
         {
             return View();
-        }              
-        public ActionResult Savee(EmpDTO objDTO)
+        }
+        [HttpPost]
+        public ActionResult SaveEmployee(EmpDTO objDTO)
         {
 
 
