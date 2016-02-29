@@ -16,6 +16,7 @@ namespace SampleMapper
         public string DeptName { get; set; }
         public string Designation { get; set; }
 
+        public string EmpFile { get; set; }
     }
 
 

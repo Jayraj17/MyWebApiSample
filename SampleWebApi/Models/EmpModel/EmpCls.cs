@@ -25,8 +25,8 @@ namespace SampleWebApi.Models.EmpModel
                         {
                             throw new ArgumentNullException("item");
                         }
-                        DB.InsertEmployee(obj.EmpName, obj.Salary, obj.DeptName, obj.Designation, OutputParamValue);
-                        obj.ResultID = Convert.ToInt32(OutputParamValue.Value);
+                        DB.InsertEmployee(obj.EmpName, obj.Salary, obj.DeptName, obj.Designation,obj.EmpFile);
+                       // obj.ResultID = Convert.ToInt32(OutputParamValue.Value);
                         DB.SaveChanges();
                         dbContextTransaction.Commit();
                         return obj;

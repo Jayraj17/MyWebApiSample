@@ -15,7 +15,9 @@ namespace SampleWebApi.Controllers.EmpCnrl
 
         static readonly IEmpCls EmpRep = new EmpCls();
 
+
         [Route("SaveEmployee")]
+        [HttpPost]
         public HttpResponseMessage SaveEmployee(EmpDTO obj)
         {
             obj = EmpRep.SaveEmployee(obj);

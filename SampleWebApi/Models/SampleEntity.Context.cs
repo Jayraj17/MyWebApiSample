@@ -38,7 +38,7 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result>("GetEmpDetails", empNameParameter);
         }
     
-        public virtual int InsertEmployee(string empName, Nullable<int> salary, string deptName, string designation, ObjectParameter result)
+        public virtual int InsertEmployee(string empName, Nullable<int> salary, string deptName, string designation, string empFile)
         {
             var empNameParameter = empName != null ?
                 new ObjectParameter("EmpName", empName) :
@@ -56,7 +56,11 @@ namespace SampleWebApi.Models
                 new ObjectParameter("Designation", designation) :
                 new ObjectParameter("Designation", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNameParameter, salaryParameter, deptNameParameter, designationParameter, result);
+            var empFileParameter = empFile != null ?
+                new ObjectParameter("EmpFile", empFile) :
+                new ObjectParameter("EmpFile", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter);
         }
     }
 }

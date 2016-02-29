@@ -1,26 +1,23 @@
 ﻿@model  SampleMapper.EmpDTO
 @{
-    ViewBag.Title = "SaveEmployee";
+    ViewBag.Title = "Save Employee";
 }
 
 <h2>SaveEmployee</h2>
 
-@*@using (Html.BeginForm(FormMethod.Post))
-{*@
 
-@using (Html.BeginForm("SaveEmployee", "Emp", FormMethod.Post, new { id = "frmEmpMst" }))
+@using (Html.BeginForm("SaveEmployee", "Emp", FormMethod.Post, new { id = "frmEmpMst", enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <table>
         @Html.HiddenFor(m => m.EmpNo)
-     
 
         <tr>
             <td>
                 EmpName :
             </td>
             <td>
-                @Html.TextBoxFor(m => m.EmpName, new {id="EmpName"})
+                @Html.TextBoxFor(m => m.EmpName, new { id = "EmpName" })
             </td>
         </tr>
 
@@ -49,6 +46,20 @@
             </td>
             <td>
                 @Html.TextBoxFor(m => m.Designation, new { id = "Designation" })
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                File :
+            </td>
+            <td>
+
+                <input type="file" name="file" id="fileToUpload"
+                       tabindex="1" style="visibility: hidden; width: 100%; height: 5px;" />
+                <input type="button" id="Photo" onclick="document.getElementById('fileToUpload').click(); return false;"
+                       value="Browse" style="width: 80px; height: 30px; margin-bottom: 5px;" />
             </td>
         </tr>
 
