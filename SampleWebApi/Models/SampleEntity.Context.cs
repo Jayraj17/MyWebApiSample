@@ -28,6 +28,7 @@ namespace SampleWebApi.Models
         }
     
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<CityMaster> CityMasters { get; set; }
     
         public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
         {
@@ -61,6 +62,28 @@ namespace SampleWebApi.Models
                 new ObjectParameter("EmpFile", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter);
+        }
+    
+        public virtual ObjectResult<GetCity_Result> GetCity(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result>("GetCity", cIDParameter);
+        }
+    
+        public virtual int InsertCity(Nullable<int> cID, string city)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            var cityParameter = city != null ?
+                new ObjectParameter("City", city) :
+                new ObjectParameter("City", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertCity", cIDParameter, cityParameter);
         }
     }
 }
