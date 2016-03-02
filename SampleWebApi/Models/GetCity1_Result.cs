@@ -10,19 +10,13 @@
 namespace SampleWebApi.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CountryMaster
+    public partial class GetCity1_Result
     {
-        public CountryMaster()
-        {
-            this.CityMasters = new HashSet<CityMaster>();
-        }
-    
         public int CID { get; set; }
+        public Nullable<int> CountryID { get; set; }
         public string CountryName { get; set; }
+        public string CityName { get; set; }
         public Nullable<int> IsActive { get; set; }
-    
-        public virtual ICollection<CityMaster> CityMasters { get; set; }
     }
 }

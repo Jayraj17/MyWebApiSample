@@ -13,6 +13,10 @@ namespace SampleMapper
         public string CityName { get; set; }
         public IEnumerable<CityDTO> CityGrid { get; set; }
         public CityDTO CityEdit { get; set; }
+
+        public int CountryID { get; set; }
+
+        public virtual CountryDTO CountryDTO { get; set; }
     }
     public class CountryDTO
     {

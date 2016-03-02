@@ -77,26 +77,21 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNoParameter, empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter, userNameParameter, passwordParameter, result);
         }
     
-        public virtual ObjectResult<GetCity_Result> GetCity(Nullable<int> cID)
+        public virtual int InsertCity(Nullable<int> cID, Nullable<int> countryID, string city)
         {
             var cIDParameter = cID.HasValue ?
                 new ObjectParameter("CID", cID) :
                 new ObjectParameter("CID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result>("GetCity", cIDParameter);
-        }
-    
-        public virtual int InsertCity(Nullable<int> cID, string city)
-        {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("CID", cID) :
-                new ObjectParameter("CID", typeof(int));
+            var countryIDParameter = countryID.HasValue ?
+                new ObjectParameter("CountryID", countryID) :
+                new ObjectParameter("CountryID", typeof(int));
     
             var cityParameter = city != null ?
                 new ObjectParameter("City", city) :
                 new ObjectParameter("City", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertCity", cIDParameter, cityParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertCity", cIDParameter, countryIDParameter, cityParameter);
         }
     
         public virtual ObjectResult<GetAllCountry_Result> GetAllCountry(Nullable<int> cID)
@@ -119,6 +114,15 @@ namespace SampleWebApi.Models
                 new ObjectParameter("CountryName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertUpdateCountry", cIDParameter, countryNameParameter);
+        }
+    
+        public virtual ObjectResult<GetCity_Result2> GetCity(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result2>("GetCity", cIDParameter);
         }
     }
 }

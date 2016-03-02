@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DBScript\ttttt.sql" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,7 +110,16 @@
     <Compile Include="Models\GetAllCountry_Result.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetCity1_Result.cs">
+      <DependentUpon>SampleEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetCity_Result.cs">
+      <DependentUpon>SampleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCity_Result1.cs">
+      <DependentUpon>SampleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCity_Result2.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetEmpDetails_Result.cs">
@@ -163,7 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DBScript\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleMapper\SampleMapper.csproj">
