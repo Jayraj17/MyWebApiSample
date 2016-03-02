@@ -62,8 +62,61 @@
                        value="Browse" style="width: 80px; height: 30px; margin-bottom: 5px;" />
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                User Name :
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.UserName, new { id = "UserName" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password :
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.Password, new { id = "Password" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
 
+            <td>
+                <input type="submit" value="Save" class="btn button" formaction="/Emp/SaveEmployee" />
+                <input type="submit" value="Clear" class="btn button" onclick="return EmpClear();"/>
+            </td>
+
+        </tr>
     </table>
 
-    <input type="submit" value="Save" class="btn button" formaction="/Emp/SaveEmployee" />
+
 }
+
+<script type="text/javascript">
+
+
+    function EmpClear()
+    {
+
+        var EmpName = document.getElementById("EmpName").value = "";
+        var Salary = document.getElementById("Salary").value = "";
+        var DeptName = document.getElementById("DeptName").value = "";
+        var Designation = document.getElementById("Designation").value = "";
+        var UserName = document.getElementById("UserName").value = "";
+        var Password = document.getElementById("Password").value = "";
+        return false;
+
+
+    }
+
+</script>

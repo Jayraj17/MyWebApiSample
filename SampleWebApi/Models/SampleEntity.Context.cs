@@ -29,6 +29,7 @@ namespace SampleWebApi.Models
     
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<CityMaster> CityMasters { get; set; }
+        public virtual DbSet<CountryMaster> CountryMasters { get; set; }
     
         public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
         {
@@ -39,8 +40,12 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result>("GetEmpDetails", empNameParameter);
         }
     
-        public virtual int InsertEmployee(string empName, Nullable<int> salary, string deptName, string designation, string empFile)
+        public virtual int InsertEmployee(Nullable<int> empNo, string empName, Nullable<int> salary, string deptName, string designation, string empFile, string userName, string password, ObjectParameter result)
         {
+            var empNoParameter = empNo.HasValue ?
+                new ObjectParameter("EmpNo", empNo) :
+                new ObjectParameter("EmpNo", typeof(int));
+    
             var empNameParameter = empName != null ?
                 new ObjectParameter("EmpName", empName) :
                 new ObjectParameter("EmpName", typeof(string));
@@ -61,7 +66,15 @@ namespace SampleWebApi.Models
                 new ObjectParameter("EmpFile", empFile) :
                 new ObjectParameter("EmpFile", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter);
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNoParameter, empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter, userNameParameter, passwordParameter, result);
         }
     
         public virtual ObjectResult<GetCity_Result> GetCity(Nullable<int> cID)
@@ -84,6 +97,28 @@ namespace SampleWebApi.Models
                 new ObjectParameter("City", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertCity", cIDParameter, cityParameter);
+        }
+    
+        public virtual ObjectResult<GetAllCountry_Result> GetAllCountry(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllCountry_Result>("GetAllCountry", cIDParameter);
+        }
+    
+        public virtual int InsertUpdateCountry(Nullable<int> cID, string countryName)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            var countryNameParameter = countryName != null ?
+                new ObjectParameter("CountryName", countryName) :
+                new ObjectParameter("CountryName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertUpdateCountry", cIDParameter, countryNameParameter);
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model  SampleMapper.CountryDTO
+@{
+    WebGrid grid = new WebGrid(Model.CountryGrid, rowsPerPage: 5, ajaxUpdateContainerId: "CountryGrid");
+}
+
+@grid.GetHtml(
+                htmlAttributes: new { id = "CountryGrid" },
+                tableStyle: "table",
+                mode: WebGridPagerModes.All,
+                firstText: "<< ",
+                previousText: "< ",
+                nextText: " >",
+                lastText: " >>",
+            columns: new[]
+                {
+                    grid.Column("CountryName","Country Name"),
+                  //  grid.Column("ModuleVer","Module Ver",canSort:false), //the model fields to display
+                 //   grid.Column("Active","Active",canSort:false),
+                  //  grid.Column("Created Date",format: item => ((item.Created_Date == null) ? "" : item.Created_Date.ToString("MM/dd/yyyy")),canSort:false),
+                    grid.Column("Action", format: @<text> @Html.ActionLink("Edit", "Country", new { id = item.CID })</text>,  style: "col3Width" , canSort: false)
+                }
+                            )
+

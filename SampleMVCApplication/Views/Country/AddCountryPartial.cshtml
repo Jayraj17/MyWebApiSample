@@ -1,0 +1,23 @@
+﻿@model  SampleMapper.CountryDTO
+<table>
+    <tr>
+        <td>
+            @Html.HiddenFor(item => item.CountryEdit.CID)
+
+        </td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td>Country Name :-</td>
+        <td>
+            @Html.TextBoxFor(item => item.CountryEdit.CountryName, new { @placeholder = "Country Name", @class = "form-control SpeCharNot", id = "txtCountry", @autocomplete = "off" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input id="save" type="submit" value="Save" class="btn button" formaction="~/Country/Save" />
+        </td>
+
+    </tr>
+</table>

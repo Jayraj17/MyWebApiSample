@@ -13,6 +13,14 @@
           <Property Name="CityName" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="int" />
         </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int" />
+        </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmpNo" />
@@ -23,7 +31,13 @@
           <Property Name="DeptName" Type="varchar" MaxLength="50" />
           <Property Name="Designation" Type="varchar" MaxLength="50" />
           <Property Name="EmpFile" Type="varchar" MaxLength="150" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="int" />
         </EntityType>
+        <Function Name="GetAllCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CID" Type="int" Mode="In" />
         </Function>
@@ -35,14 +49,23 @@
           <Parameter Name="City" Type="varchar" Mode="In" />
         </Function>
         <Function Name="InsertEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpNo" Type="int" Mode="In" />
           <Parameter Name="EmpName" Type="varchar" Mode="In" />
           <Parameter Name="Salary" Type="int" Mode="In" />
           <Parameter Name="DeptName" Type="varchar" Mode="In" />
           <Parameter Name="Designation" Type="varchar" Mode="In" />
           <Parameter Name="EmpFile" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Result" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="InsertUpdateCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CID" Type="int" Mode="In" />
+          <Parameter Name="CountryName" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="GeesemedLocalModelStoreContainer">
           <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -54,11 +77,15 @@
           <Parameter Name="EmpName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="InsertEmployee">
+            <Parameter Name="EmpNo" Mode="In" Type="Int32" />
             <Parameter Name="EmpName" Mode="In" Type="String" />
             <Parameter Name="Salary" Mode="In" Type="Int32" />
             <Parameter Name="DeptName" Mode="In" Type="String" />
             <Parameter Name="Designation" Mode="In" Type="String" />
             <Parameter Name="EmpFile" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Result" Mode="InOut" Type="String" />
           </FunctionImport>
           <EntitySet Name="Employees" EntityType="GeesemedLocalModel.Employee" />
           <EntitySet Name="CityMasters" EntityType="GeesemedLocalModel.CityMaster" />
@@ -68,6 +95,14 @@
           <FunctionImport Name="InsertCity">
             <Parameter Name="CID" Mode="In" Type="Int32" />
             <Parameter Name="City" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CountryMasters" EntityType="GeesemedLocalModel.CountryMaster" />
+          <FunctionImport Name="GetAllCountry" ReturnType="Collection(GeesemedLocalModel.GetAllCountry_Result)">
+          <Parameter Name="CID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertUpdateCountry">
+            <Parameter Name="CID" Mode="In" Type="Int32" />
+            <Parameter Name="CountryName" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetEmpDetails_Result">
@@ -87,6 +122,9 @@
           <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmpFile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
         </EntityType>
         <EntityType Name="CityMaster">
           <Key>
@@ -99,6 +137,19 @@
         <ComplexType Name="GetCity_Result">
           <Property Type="Int32" Name="CID" Nullable="false" />
           <Property Type="String" Name="CityName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="GetAllCountry_Result">
+          <Property Type="Int32" Name="CID" Nullable="false" />
+          <Property Type="String" Name="CountryName" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="IsActive" Nullable="true" />
         </ComplexType>
       </Schema>
@@ -122,6 +173,9 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="GeesemedLocalModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="EmpFile" ColumnName="EmpFile" />
                 <ScalarProperty Name="Designation" ColumnName="Designation" />
                 <ScalarProperty Name="DeptName" ColumnName="DeptName" />
@@ -150,6 +204,25 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="InsertCity" FunctionName="GeesemedLocalModel.Store.InsertCity" />
+          <EntitySetMapping Name="CountryMasters">
+            <EntityTypeMapping TypeName="GeesemedLocalModel.CountryMaster">
+              <MappingFragment StoreEntitySet="CountryMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllCountry" FunctionName="GeesemedLocalModel.Store.GetAllCountry">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GeesemedLocalModel.GetAllCountry_Result">
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertUpdateCountry" FunctionName="GeesemedLocalModel.Store.InsertUpdateCountry" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

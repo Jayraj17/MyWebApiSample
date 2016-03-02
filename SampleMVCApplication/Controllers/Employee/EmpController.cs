@@ -67,13 +67,14 @@ namespace SampleMVCApplication.Controllers.Employee
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = client.PostAsJsonAsync("api/EmpApi/SaveEmployee/", objDTO).Result;
+                var test = Convert.ToString(response.ReasonPhrase);
                 if (!response.IsSuccessStatusCode)
                 {
                     // Error Over Here....!!
                     return View("Error");
                 }
                 // var objtDTO = response.Content.ReadAsAsync<IEnumerable<EmpDTO>>().Result;
-                return View();
+                return View("SaveEmployee");
             }
         }
 

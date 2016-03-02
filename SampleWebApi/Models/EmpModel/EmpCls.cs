@@ -9,7 +9,8 @@ namespace SampleWebApi.Models.EmpModel
 {
     public class EmpCls : IEmpCls
     {
-        ObjectParameter OutputParamValue = new ObjectParameter("output", typeof(string));
+        ObjectParameter OutputParamValue = new ObjectParameter("Result", typeof(string));
+       
 
         public EmpDTO SaveEmployee(EmpDTO obj)
         {
@@ -25,8 +26,8 @@ namespace SampleWebApi.Models.EmpModel
                         {
                             throw new ArgumentNullException("item");
                         }
-                        DB.InsertEmployee(obj.EmpName, obj.Salary, obj.DeptName, obj.Designation,obj.EmpFile);
-                       // obj.ResultID = Convert.ToInt32(OutputParamValue.Value);
+                        DB.InsertEmployee(0, obj.EmpName, obj.Salary, obj.DeptName, obj.Designation, obj.EmpFile, obj.UserName, obj.Password, OutputParamValue);
+                        obj.ResultID = Convert.ToString(OutputParamValue.Value);
                         DB.SaveChanges();
                         dbContextTransaction.Commit();
                         return obj;

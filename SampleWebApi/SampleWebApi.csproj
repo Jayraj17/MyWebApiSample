@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CityCnrl\CityApiController.cs" />
+    <Compile Include="Controllers\CountryCnrl\CountryApiController.cs" />
     <Compile Include="Controllers\EmpCnrl\EmpApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -95,11 +96,19 @@
     </Compile>
     <Compile Include="Models\CityModel\City.cs" />
     <Compile Include="Models\CityModel\ICity.cs" />
+    <Compile Include="Models\CountryMaster.cs">
+      <DependentUpon>SampleEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountryModel\Country.cs" />
+    <Compile Include="Models\CountryModel\ICountry.cs" />
     <Compile Include="Models\Employee.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmpModel\EmpCls.cs" />
     <Compile Include="Models\EmpModel\IEmpCls.cs" />
+    <Compile Include="Models\GetAllCountry_Result.cs">
+      <DependentUpon>SampleEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetCity_Result.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
@@ -154,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DBScript\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleMapper\SampleMapper.csproj">

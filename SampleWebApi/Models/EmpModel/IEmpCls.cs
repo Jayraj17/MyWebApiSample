@@ -9,7 +9,7 @@ namespace SampleWebApi.Models.EmpModel
 {
     interface IEmpCls
     {
-     
+
         EmpDTO SaveEmployee(EmpDTO obj);
     }
 }

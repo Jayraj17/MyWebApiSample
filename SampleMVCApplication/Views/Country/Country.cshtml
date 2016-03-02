@@ -1,0 +1,14 @@
+﻿@model  SampleMapper.CountryDTO
+@{
+    ViewBag.Title = "Country";
+}
+
+<h2>Country</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("AddCountryPartial", Model)
+    <br />
+    @Html.Partial("GetCountryPartial", Model)
+}
+
