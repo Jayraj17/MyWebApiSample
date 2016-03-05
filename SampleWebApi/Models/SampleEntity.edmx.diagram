@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="GeesemedLocalModel.CityMaster" Width="1.5" PointX="2.5" PointY="0.75" />
         <EntityTypeShape EntityType="GeesemedLocalModel.CountryMaster" Width="1.5" PointX="4.25" PointY="0.75" />
         <AssociationConnector Association="GeesemedLocalModel.FK_CityMaster_CountryMaster" />
+        <EntityTypeShape EntityType="GeesemedLocalModel.DocMaster" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

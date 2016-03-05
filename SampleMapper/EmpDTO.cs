@@ -18,8 +18,15 @@ namespace SampleMapper
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public string ResultID { get; set; }
+        public virtual DocDTO DocDTO { get; set; }
 
       }
+    public class DocDTO
+    {
+        public int DocID { get; set; }
+        public int EmpNo { get; set; }
+        public string DocName { get; set; }
+    }
 
 
 }

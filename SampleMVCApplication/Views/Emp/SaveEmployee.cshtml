@@ -56,10 +56,23 @@
             </td>
             <td>
 
-                <input type="file" name="file" id="fileToUpload"
-                       tabindex="1" style="visibility: hidden; width: 100%; height: 5px;" />
-                <input type="button" id="Photo" onclick="document.getElementById('fileToUpload').click(); return false;"
-                       value="Browse" style="width: 80px; height: 30px; margin-bottom: 5px;" />
+                @*<input type="file" name="file" id="fileToUpload"
+                           tabindex="1" style="visibility: hidden; width: 100%; height: 5px;" />
+                    <input type="button" id="Photo" onclick="document.getElementById('fileToUpload').click(); return false;"
+                           value="Browse" style="width: 80px; height: 30px; margin-bottom: 5px;" />*@
+
+
+                <div id="uploaders">
+                    <input type="file" id="fileToUpload" name="fileUpload" multiple="multiple" style="float: left;" accept=".PNG,.TXT,.JPG,.BMP, .gif" />
+                    <br />
+                    <span id="spnFile" style="float: left; color: #FF0000"></span>
+
+                    <span id="lifile" style="float: left; color: #FF0000"></span>
+                    @Html.ValidationMessage("File")
+                    @Html.Hidden("hdnFileUpload")
+                </div>
+
+
             </td>
         </tr>
         <tr>
@@ -93,7 +106,7 @@
 
             <td>
                 <input type="submit" value="Save" class="btn button" formaction="/Emp/SaveEmployee" />
-                <input type="submit" value="Clear" class="btn button" onclick="return EmpClear();"/>
+                <input type="submit" value="Clear" class="btn button" onclick="return EmpClear();" />
             </td>
 
         </tr>
@@ -105,8 +118,7 @@
 <script type="text/javascript">
 
 
-    function EmpClear()
-    {
+    function EmpClear() {
 
         var EmpName = document.getElementById("EmpName").value = "";
         var Salary = document.getElementById("Salary").value = "";
@@ -118,5 +130,74 @@
 
 
     }
+
+
+
+
+
+    $(function () {
+
+        $(":file").attr('title', '  ');
+
+        $("input[id^='fileToUpload']").change(function (e) {
+            doReCreate(e);
+        });
+
+        selDiv = $("#selectedFiles");
+    });
+
+
+    function doReCreate(e) {
+        upc = upc + 1;
+        handleFileSelect(e);
+
+        $("input[id^='fileToUpload']").hide();
+
+        $('<input>').attr({
+            type: 'file',
+            multiple: 'multiple',
+            id: 'fileToUpload' + upc,
+            class: 'fUpload',
+            name: 'fileUpload',
+            style: 'float: left',
+            title: '  ',
+            onchange: "doReCreate(event)"
+
+        }).appendTo('#uploaders');
+    }
+
+
+    function handleFileSelect(e) {
+
+        //selDiv.innerHTML = ""; storedFiles = [];
+        selDiv = document.querySelector("#selectedFiles");
+
+        if (!e.target.files) return;
+
+        //selDiv.innerHTML = "";
+        files = e.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            //if (i == 0) { selDiv.innerHTML = ""; storedFiles = []; }
+            var f = files[i];
+            selDiv.innerHTML += "<div>" + f.name + "<a onclick='removeAtt(this)'> X </a></div>";
+            storedFiles.push(f.name);
+        }
+        $('#@Html.IdFor(i => i.DocDTO.DocName)').val(storedFiles);
+    }
+
+    function removeAtt(t) {
+        var serEle = $(t).parent().text().slice(0, -3);
+        var index = storedFiles.indexOf(serEle);
+        if (index !== -1) {
+            storedFiles.splice(index, 1);
+        }
+        $(t).parent().remove();
+        $('#@Html.IdFor(i => i.DocDTO.DocName)').val(storedFiles);
+        $("#lifile").text();
+
+    }
+
+
 
 </script>

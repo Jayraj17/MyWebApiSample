@@ -30,15 +30,7 @@ namespace SampleWebApi.Models
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<CityMaster> CityMasters { get; set; }
         public virtual DbSet<CountryMaster> CountryMasters { get; set; }
-    
-        public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
-        {
-            var empNameParameter = empName != null ?
-                new ObjectParameter("EmpName", empName) :
-                new ObjectParameter("EmpName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result>("GetEmpDetails", empNameParameter);
-        }
+        public virtual DbSet<DocMaster> DocMasters { get; set; }
     
         public virtual int InsertEmployee(Nullable<int> empNo, string empName, Nullable<int> salary, string deptName, string designation, string empFile, string userName, string password, ObjectParameter result)
         {
@@ -123,6 +115,32 @@ namespace SampleWebApi.Models
                 new ObjectParameter("CID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result2>("GetCity", cIDParameter);
+        }
+    
+        public virtual int Sp_InsertUpdateDoc(Nullable<int> docID, Nullable<int> empNo, string docName)
+        {
+            var docIDParameter = docID.HasValue ?
+                new ObjectParameter("DocID", docID) :
+                new ObjectParameter("DocID", typeof(int));
+    
+            var empNoParameter = empNo.HasValue ?
+                new ObjectParameter("EmpNo", empNo) :
+                new ObjectParameter("EmpNo", typeof(int));
+    
+            var docNameParameter = docName != null ?
+                new ObjectParameter("DocName", docName) :
+                new ObjectParameter("DocName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertUpdateDoc", docIDParameter, empNoParameter, docNameParameter);
+        }
+    
+        public virtual ObjectResult<GetEmpDetails_Result1> GetEmpDetails(Nullable<int> empNo)
+        {
+            var empNoParameter = empNo.HasValue ?
+                new ObjectParameter("EmpNo", empNo) :
+                new ObjectParameter("EmpNo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result1>("GetEmpDetails", empNoParameter);
         }
     }
 }

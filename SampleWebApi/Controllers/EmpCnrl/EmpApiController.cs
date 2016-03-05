@@ -25,5 +25,37 @@ namespace SampleWebApi.Controllers.EmpCnrl
             Responce.ReasonPhrase = Convert.ToString(obj.ResultID);
             return Responce;
         }
+
+        [Route("AddDoc")]
+        [HttpPost]
+        public HttpResponseMessage AddDoc(DocDTO obj)
+        {
+            obj = EmpRep.AddDoc(obj);
+            var Responce = Request.CreateResponse<DocDTO>(HttpStatusCode.Created, obj);
+           // Responce.ReasonPhrase = Convert.ToString(obj.ResultID);
+            return Responce;
+        }
+
+
+        [Route("GetEmp")]
+        public IEnumerable<EmpDTO> GetEmp()
+        {
+            return EmpRep.GetAll();
+        }
+
+        [Route("GetEmp/{id}")]
+        public HttpResponseMessage GetEmp(int id)
+        {
+            EmpDTO ObjCon = EmpRep.Get(id);
+            if (ObjCon == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry");
+            }
+            else
+            {
+                return Request.CreateResponse<EmpDTO>(ObjCon);
+            }
+        }
+
     }
 }

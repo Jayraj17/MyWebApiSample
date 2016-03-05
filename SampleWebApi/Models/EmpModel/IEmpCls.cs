@@ -11,5 +11,8 @@ namespace SampleWebApi.Models.EmpModel
     {
 
         EmpDTO SaveEmployee(EmpDTO obj);
+        DocDTO AddDoc(DocDTO obj);
+        IEnumerable<EmpDTO> GetAll();
+        EmpDTO Get(int id);
     }
 }
