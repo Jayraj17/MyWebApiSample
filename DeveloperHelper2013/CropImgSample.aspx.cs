@@ -12,6 +12,17 @@ namespace DeveloperHelper2013
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+        }
+        protected void Upload(object sender, EventArgs e)
+        {
+            string base64 = Request.Form["imgCropped"];
+            byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
+            using (System.IO.FileStream stream = new System.IO.FileStream(Server.MapPath("~/Images/Cropped.png"), System.IO.FileMode.Create))
+            {
+                stream.Write(bytes, 0, bytes.Length);
+                stream.Flush();
+            }
         }
     }
 }
