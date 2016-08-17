@@ -26,7 +26,7 @@ CKEDITOR.editorConfig = function (config) {
     config.autoParagraph = false;
 };
 
-function escapeHtml_HiddenChar(string_Input) {
+function escapeHtml_HiddenChar(string_Input) {  
     try {
         if (typeof string_Input === 'undefined') {
             return "";

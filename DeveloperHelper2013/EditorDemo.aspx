@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditorDemo.aspx.cs" Inherits="DeveloperHelper2013.EditorDemo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditorDemo.aspx.cs" Inherits="DeveloperHelper2013.EditorDemo" validateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +18,8 @@
         }
         function Save()
         {
-            $("#TxtDemo").val(escapeHtml_HiddenChar($("#NewEditor").html()));
+            debugger;
+            jq("#TxtDemo").val(escapeHtml_HiddenChar(jq("#NewEditor").html()));
         }
     </script>
 </head>
