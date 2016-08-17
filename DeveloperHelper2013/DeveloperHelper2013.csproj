@@ -539,7 +539,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="ImgCrop.aspx" />
-    <Content Include="Sample\CropImgSample.aspx" />
+    <Content Include="CropImgSample.aspx" />
     <Content Include="EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ICDSeqChange.aspx" />
@@ -638,11 +638,11 @@
     <Content Include="ckeditor\vssver2.scc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="RadioButtonSaveList.aspx" />
-    <Content Include="Sample\ErrorLog.aspx" />
+    <Content Include="ErrorLog.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cropbox.js" />
-    <Content Include="Scripts\Crpjs.js" />
+    <Content Include="Crpjs.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
@@ -772,11 +772,11 @@
     <Compile Include="ImgCrop.aspx.designer.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sample\CropImgSample.aspx.cs">
+    <Compile Include="CropImgSample.aspx.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sample\CropImgSample.aspx.designer.cs">
+    <Compile Include="CropImgSample.aspx.designer.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBCommunication\ConStr.cs" />
@@ -822,11 +822,11 @@
     <Compile Include="RadioButtonSaveList.aspx.designer.cs">
       <DependentUpon>RadioButtonSaveList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sample\ErrorLog.aspx.cs">
+    <Compile Include="ErrorLog.aspx.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sample\ErrorLog.aspx.designer.cs">
+    <Compile Include="ErrorLog.aspx.designer.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
@@ -859,9 +859,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Demo\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
