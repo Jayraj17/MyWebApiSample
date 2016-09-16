@@ -539,6 +539,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="CropImgSample.aspx" />
+    <Content Include="DLL\itextsharp.dll" />
     <Content Include="EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ICDSeqChange001.aspx" />
