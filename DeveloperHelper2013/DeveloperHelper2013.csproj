@@ -538,11 +538,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Css\bootstrap.css" />
-    <Content Include="ImgCrop.aspx" />
     <Content Include="CropImgSample.aspx" />
     <Content Include="EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="ICDSeqChange.aspx" />
     <Content Include="ICDSeqChange001.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -753,6 +751,7 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\ITextSharpHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AutoComplete.aspx.cs">
@@ -763,13 +762,6 @@
       <DependentUpon>AutoComplete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Common.cs" />
-    <Compile Include="ImgCrop.aspx.cs">
-      <DependentUpon>ImgCrop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ImgCrop.aspx.designer.cs">
-      <DependentUpon>ImgCrop.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CropImgSample.aspx.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -777,7 +769,6 @@
     <Compile Include="CropImgSample.aspx.designer.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DBCommunication\ConStr.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -785,6 +776,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DBCommunication\ConStr.cs" />
     <Compile Include="DBCommunication\DBCommunication.cs" />
     <Compile Include="DBCommunication\HelperCls.cs" />
     <Compile Include="EditorDemo.aspx.cs">
@@ -796,13 +788,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="ICDSeqChange.aspx.cs">
-      <DependentUpon>ICDSeqChange.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ICDSeqChange.aspx.designer.cs">
-      <DependentUpon>ICDSeqChange.aspx</DependentUpon>
     </Compile>
     <Compile Include="ICDSeqChange001.aspx.cs">
       <DependentUpon>ICDSeqChange001.aspx</DependentUpon>
