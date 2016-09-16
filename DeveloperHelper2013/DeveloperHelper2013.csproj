@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.4.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -527,8 +531,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Css\bootstrap.css" />
     <Content Include="CropImgSample.aspx" />
+    <Content Include="Demo007.aspx" />
     <Content Include="DLL\itextsharp.dll" />
     <Content Include="EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -677,10 +681,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\ITextSharpHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AutoComplete.aspx.cs">
       <DependentUpon>AutoComplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -699,6 +701,13 @@
     <Compile Include="DBCommunication\ConStr.cs" />
     <Compile Include="DBCommunication\DBCommunication.cs" />
     <Compile Include="DBCommunication\HelperCls.cs" />
+    <Compile Include="Demo007.aspx.cs">
+      <DependentUpon>Demo007.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo007.aspx.designer.cs">
+      <DependentUpon>Demo007.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditorDemo.aspx.cs">
       <DependentUpon>EditorDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -711,6 +720,7 @@
     </Compile>
     <Compile Include="ICDSeqChange.aspx.cs">
       <DependentUpon>ICDSeqChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ICDSeqChange.aspx.designer.cs">
       <DependentUpon>ICDSeqChange.aspx</DependentUpon>
@@ -724,12 +734,14 @@
     </Compile>
     <Compile Include="ImgCrop.aspx.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ImgCrop.aspx.designer.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Password.aspx.cs">
       <DependentUpon>Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Password.aspx.designer.cs">
       <DependentUpon>Password.aspx</DependentUpon>
@@ -752,12 +764,15 @@
     <Compile Include="Startup.cs" />
     <Compile Include="TimerTestDemo.aspx.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TimerTestDemo.aspx.designer.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Css\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
