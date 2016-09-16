@@ -121,7 +121,7 @@ namespace DeveloperHelper2013.App_Start
                 Gender = Ds.Tables[0].Rows[0]["mpt_pat_sex"].ToString();
             }
           //  clsHospital objHosp = new clsHospital(SessionManager.CONNECTIONSTRING, SessionManager.HOSPITAL_ID);
-            string hospName = //objHosp.getHospitalName();
+            string hospName = "trest"; //objHosp.getHospitalName();
 
 
          //   DvHeaderLeft.Float = PdfDiv.FloatType.LEFT;
