@@ -19,6 +19,7 @@ namespace DeveloperHelper2013
            bool test =obj.ChangeSeq("007",8);
 
 
+
         }
 
 

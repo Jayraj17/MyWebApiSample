@@ -670,7 +670,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="TimerTestDemo.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="ValidationAllowNumber.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -775,6 +778,13 @@
     </Compile>
     <Compile Include="TimerTestDemo.aspx.designer.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationAllowNumber.aspx.cs">
+      <DependentUpon>ValidationAllowNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValidationAllowNumber.aspx.designer.cs">
+      <DependentUpon>ValidationAllowNumber.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

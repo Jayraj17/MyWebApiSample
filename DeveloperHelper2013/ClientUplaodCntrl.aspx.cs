@@ -15,6 +15,7 @@ namespace DeveloperHelper2013
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
         }
         [System.Web.Services.WebMethod]
         public static string SaveImage(Dictionary<string, string> SendObj)

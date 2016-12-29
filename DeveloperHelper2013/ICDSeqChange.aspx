@@ -114,7 +114,7 @@
                 debugger;
                 //var p = $(this).position();
                 //  alert(jq(this).attr('id') + " " + Seq);
-                ChangeICDSeq(jq(this).attr('id'), Seq);
+               // ChangeICDSeq(jq(this).attr('id'), Seq);
                 Seq++;
             });
             refresh();
