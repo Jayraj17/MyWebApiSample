@@ -92,10 +92,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\SessionManager.cs" />
-    <Compile Include="Models\CityMaster.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CityModel\City.cs" />
     <Compile Include="Models\CityModel\ICity.cs" />
     <Compile Include="Models\CountryMaster.cs">
@@ -103,9 +99,6 @@
     </Compile>
     <Compile Include="Models\CountryModel\Country.cs" />
     <Compile Include="Models\CountryModel\ICountry.cs" />
-    <Compile Include="Models\DocMaster.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Employee.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
@@ -126,13 +119,7 @@
     <Compile Include="Models\GetCity_Result2.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GetEmpDetails1_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\GetEmpDetails_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GetEmpDetails_Result1.cs">
       <DependentUpon>SampleEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SampleEntity.Context.cs">
@@ -183,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleMapper\SampleMapper.csproj">

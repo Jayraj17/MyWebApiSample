@@ -160,7 +160,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\City\CityController.cs" />
     <Compile Include="Controllers\Country\CountryController.cs" />
     <Compile Include="Controllers\Employee\EmpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -234,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\City\" />
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
