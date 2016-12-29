@@ -153,7 +153,7 @@
     <Content Include="App_Data\Sample_log.ldf">
       <DependentUpon>Sample.mdf</DependentUpon>
     </Content>
-    <Content Include="AutoComplete.aspx" />
+    <Content Include="SamplePages\AutoComplete.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -528,18 +528,18 @@
     <Content Include="ckeditor\skins\moono\images\refresh.png" />
     <Content Include="ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
-    <Content Include="ClientUplaodCntrl.aspx" />
+    <Content Include="SamplePages\ClientUplaodCntrl.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CropImgSample.aspx" />
-    <Content Include="Demo007.aspx" />
+    <Content Include="SamplePages\CropImgSample.aspx" />
+    <Content Include="SamplePages\Demo007.aspx" />
     <Content Include="DLL\itextsharp.dll" />
-    <Content Include="EditorDemo.aspx" />
+    <Content Include="SamplePages\EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="ICDSeqChange.aspx" />
-    <Content Include="ICDSeqChange001.aspx" />
-    <Content Include="ImgCrop.aspx" />
+    <Content Include="SamplePages\ICDSeqChange.aspx" />
+    <Content Include="SamplePages\ICDSeqChange001.aspx" />
+    <Content Include="SamplePages\ImgCrop.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -632,9 +632,9 @@
     <Content Include="ckeditor\skins\moono\vssver2.scc" />
     <Content Include="ckeditor\vssver2.scc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Password.aspx" />
-    <Content Include="RadioButtonSaveList.aspx" />
-    <Content Include="ErrorLog.aspx" />
+    <Content Include="SamplePages\Password.aspx" />
+    <Content Include="SamplePages\RadioButtonSaveList.aspx" />
+    <Content Include="SamplePages\ErrorLog.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Crpjs.js" />
@@ -669,8 +669,8 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="TimerTestDemo.aspx" />
-    <Content Include="ValidationAllowNumber.aspx" />
+    <Content Include="SamplePages\TimerTestDemo.aspx" />
+    <Content Include="SamplePages\ValidationAllowNumber.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -686,104 +686,104 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ITextSharpHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AutoComplete.aspx.cs">
+    <Compile Include="SamplePages\AutoComplete.aspx.cs">
       <DependentUpon>AutoComplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AutoComplete.aspx.designer.cs">
+    <Compile Include="SamplePages\AutoComplete.aspx.designer.cs">
       <DependentUpon>AutoComplete.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientUplaodCntrl.aspx.cs">
+    <Compile Include="SamplePages\ClientUplaodCntrl.aspx.cs">
       <DependentUpon>ClientUplaodCntrl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ClientUplaodCntrl.aspx.designer.cs">
+    <Compile Include="SamplePages\ClientUplaodCntrl.aspx.designer.cs">
       <DependentUpon>ClientUplaodCntrl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Common.cs" />
-    <Compile Include="CropImgSample.aspx.cs">
+    <Compile Include="SamplePages\CropImgSample.aspx.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CropImgSample.aspx.designer.cs">
+    <Compile Include="SamplePages\CropImgSample.aspx.designer.cs">
       <DependentUpon>CropImgSample.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBCommunication\ConStr.cs" />
     <Compile Include="DBCommunication\DBCommunication.cs" />
     <Compile Include="DBCommunication\HelperCls.cs" />
-    <Compile Include="Demo007.aspx.cs">
+    <Compile Include="SamplePages\Demo007.aspx.cs">
       <DependentUpon>Demo007.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Demo007.aspx.designer.cs">
+    <Compile Include="SamplePages\Demo007.aspx.designer.cs">
       <DependentUpon>Demo007.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditorDemo.aspx.cs">
+    <Compile Include="SamplePages\EditorDemo.aspx.cs">
       <DependentUpon>EditorDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditorDemo.aspx.designer.cs">
+    <Compile Include="SamplePages\EditorDemo.aspx.designer.cs">
       <DependentUpon>EditorDemo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ICDSeqChange.aspx.cs">
+    <Compile Include="SamplePages\ICDSeqChange.aspx.cs">
       <DependentUpon>ICDSeqChange.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ICDSeqChange.aspx.designer.cs">
+    <Compile Include="SamplePages\ICDSeqChange.aspx.designer.cs">
       <DependentUpon>ICDSeqChange.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ICDSeqChange001.aspx.cs">
+    <Compile Include="SamplePages\ICDSeqChange001.aspx.cs">
       <DependentUpon>ICDSeqChange001.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ICDSeqChange001.aspx.designer.cs">
+    <Compile Include="SamplePages\ICDSeqChange001.aspx.designer.cs">
       <DependentUpon>ICDSeqChange001.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ImgCrop.aspx.cs">
+    <Compile Include="SamplePages\ImgCrop.aspx.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ImgCrop.aspx.designer.cs">
+    <Compile Include="SamplePages\ImgCrop.aspx.designer.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Password.aspx.cs">
+    <Compile Include="SamplePages\Password.aspx.cs">
       <DependentUpon>Password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Password.aspx.designer.cs">
+    <Compile Include="SamplePages\Password.aspx.designer.cs">
       <DependentUpon>Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadioButtonSaveList.aspx.cs">
+    <Compile Include="SamplePages\RadioButtonSaveList.aspx.cs">
       <DependentUpon>RadioButtonSaveList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RadioButtonSaveList.aspx.designer.cs">
+    <Compile Include="SamplePages\RadioButtonSaveList.aspx.designer.cs">
       <DependentUpon>RadioButtonSaveList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLog.aspx.cs">
+    <Compile Include="SamplePages\ErrorLog.aspx.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ErrorLog.aspx.designer.cs">
+    <Compile Include="SamplePages\ErrorLog.aspx.designer.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="TimerTestDemo.aspx.cs">
+    <Compile Include="SamplePages\TimerTestDemo.aspx.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TimerTestDemo.aspx.designer.cs">
+    <Compile Include="SamplePages\TimerTestDemo.aspx.designer.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ValidationAllowNumber.aspx.cs">
+    <Compile Include="SamplePages\ValidationAllowNumber.aspx.cs">
       <DependentUpon>ValidationAllowNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ValidationAllowNumber.aspx.designer.cs">
+    <Compile Include="SamplePages\ValidationAllowNumber.aspx.designer.cs">
       <DependentUpon>ValidationAllowNumber.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

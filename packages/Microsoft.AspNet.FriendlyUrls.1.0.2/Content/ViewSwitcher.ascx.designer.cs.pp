@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DeveloperHelper2013.Account {
+namespace $rootnamespace$ {
     
     
-    public partial class ResetPasswordConfirmation {
+    public partial class ViewSwitcher {
     }
 }
