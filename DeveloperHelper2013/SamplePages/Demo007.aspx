@@ -39,6 +39,15 @@
 
         }
 
+        function test55()
+        {
+
+            alert("hi bhaiyaji");
+            return false;
+           
+
+        }
+
 
 
 
@@ -55,7 +64,7 @@
         <div>
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </div>
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="return false;"  />
+        <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="test55(); return false;"/>
     </form>
 </body>
 </html>

@@ -46,6 +46,10 @@
       <HintPath>DLL\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpPieces.Web.Controls, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\SharpPieces.Web.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -155,6 +159,11 @@
     <Content Include="App_Data\Sample_log.ldf">
       <DependentUpon>Sample.mdf</DependentUpon>
     </Content>
+    <Content Include="Css\token-input.css" />
+    <Content Include="DLL\SharpPieces.Web.Controls.dll" />
+    <Content Include="Images\DownP.png" />
+    <Content Include="Images\GrayClose.png" />
+    <Content Include="Images\UpP.png" />
     <Content Include="SamplePages\AutoComplete.aspx" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
@@ -538,8 +547,11 @@
     <Content Include="SamplePages\CropImgSample.aspx" />
     <Content Include="SamplePages\Demo007.aspx" />
     <Content Include="DLL\itextsharp.dll" />
+    <Content Include="SamplePages\DuplicateRemoveWord.aspx" />
     <Content Include="SamplePages\EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="SamplePages\FaceBookAuto.aspx" />
+    <Content Include="SamplePages\GrpDropDown.aspx" />
     <Content Include="SamplePages\ICDSeqChange.aspx" />
     <Content Include="SamplePages\ICDSeqChange001.aspx" />
     <Content Include="SamplePages\ImgCrop.aspx" />
@@ -634,6 +646,11 @@
     <Content Include="ckeditor\skins\moono\readme.md" />
     <Content Include="ckeditor\skins\moono\vssver2.scc" />
     <Content Include="ckeditor\vssver2.scc" />
+    <Content Include="SamplePages\MaxChar.aspx" />
+    <Content Include="SamplePages\MoveRecordListBox.aspx" />
+    <Content Include="SamplePages\SpecialCharNotAllow.aspx" />
+    <Content Include="SamplePages\ValidTimeCheckInCheckOut.aspx" />
+    <Content Include="Scripts\jquery.tokeninput.js" />
     <Content Include="XmlDB\Emp.xml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="SamplePages\Password.aspx" />
@@ -729,6 +746,13 @@
     <Compile Include="SamplePages\Demo007.aspx.designer.cs">
       <DependentUpon>Demo007.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\DuplicateRemoveWord.aspx.cs">
+      <DependentUpon>DuplicateRemoveWord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\DuplicateRemoveWord.aspx.designer.cs">
+      <DependentUpon>DuplicateRemoveWord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\EditorDemo.aspx.cs">
       <DependentUpon>EditorDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -738,6 +762,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\FaceBookAuto.aspx.cs">
+      <DependentUpon>FaceBookAuto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\FaceBookAuto.aspx.designer.cs">
+      <DependentUpon>FaceBookAuto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\GrpDropDown.aspx.cs">
+      <DependentUpon>GrpDropDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\GrpDropDown.aspx.designer.cs">
+      <DependentUpon>GrpDropDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\ICDSeqChange.aspx.cs">
       <DependentUpon>ICDSeqChange.aspx</DependentUpon>
@@ -759,6 +797,20 @@
     </Compile>
     <Compile Include="SamplePages\ImgCrop.aspx.designer.cs">
       <DependentUpon>ImgCrop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\MaxChar.aspx.cs">
+      <DependentUpon>MaxChar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\MaxChar.aspx.designer.cs">
+      <DependentUpon>MaxChar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\MoveRecordListBox.aspx.cs">
+      <DependentUpon>MoveRecordListBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\MoveRecordListBox.aspx.designer.cs">
+      <DependentUpon>MoveRecordListBox.aspx</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\Password.aspx.cs">
       <DependentUpon>Password.aspx</DependentUpon>
@@ -782,6 +834,20 @@
     <Compile Include="SamplePages\ErrorLog.aspx.designer.cs">
       <DependentUpon>ErrorLog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\SpecialCharNotAllow.aspx.cs">
+      <DependentUpon>SpecialCharNotAllow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\SpecialCharNotAllow.aspx.designer.cs">
+      <DependentUpon>SpecialCharNotAllow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\ValidTimeCheckInCheckOut.aspx.cs">
+      <DependentUpon>ValidTimeCheckInCheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\ValidTimeCheckInCheckOut.aspx.designer.cs">
+      <DependentUpon>ValidTimeCheckInCheckOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="SamplePages\TimerTestDemo.aspx.cs">
       <DependentUpon>TimerTestDemo.aspx</DependentUpon>
@@ -798,9 +864,7 @@
       <DependentUpon>ValidationAllowNumber.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
