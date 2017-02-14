@@ -12,7 +12,9 @@ namespace DeveloperHelper2013
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindGrid();
+            //BindGrid();
+            string tme = "jayraj.jpg";
+            string test = tme.ToString().LastIndexOf(".");
         }
         XDocument xmldoc;
         public void BindGrid()

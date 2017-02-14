@@ -65,6 +65,7 @@
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </div>
         <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="test55(); return false;"/>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DeveloperConnection %>" SelectCommand="SELECT * FROM [Child]"></asp:SqlDataSource>
     </form>
 </body>
 </html>

@@ -15,10 +15,10 @@ namespace SampleWebApi.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class GeesemedLocalEntities : DbContext
+    public partial class DeveloperEntities : DbContext
     {
-        public GeesemedLocalEntities()
-            : base("name=GeesemedLocalEntities")
+        public DeveloperEntities()
+            : base("name=DeveloperEntities")
         {
         }
     
@@ -27,10 +27,16 @@ namespace SampleWebApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<CityMaster> CityMasters { get; set; }
-        public virtual DbSet<CountryMaster> CountryMasters { get; set; }
-        public virtual DbSet<DocMaster> DocMasters { get; set; }
+    
+        public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
+        {
+            var empNameParameter = empName != null ?
+                new ObjectParameter("EmpName", empName) :
+                new ObjectParameter("EmpName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result>("GetEmpDetails", empNameParameter);
+        }
     
         public virtual int InsertEmployee(Nullable<int> empNo, string empName, Nullable<int> salary, string deptName, string designation, string empFile, string userName, string password, ObjectParameter result)
         {
@@ -69,6 +75,24 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployee", empNoParameter, empNameParameter, salaryParameter, deptNameParameter, designationParameter, empFileParameter, userNameParameter, passwordParameter, result);
         }
     
+        public virtual ObjectResult<GetAllCountry_Result> GetAllCountry(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllCountry_Result>("GetAllCountry", cIDParameter);
+        }
+    
+        public virtual ObjectResult<GetCity_Result> GetCity(Nullable<int> cID)
+        {
+            var cIDParameter = cID.HasValue ?
+                new ObjectParameter("CID", cID) :
+                new ObjectParameter("CID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result>("GetCity", cIDParameter);
+        }
+    
         public virtual int InsertCity(Nullable<int> cID, Nullable<int> countryID, string city)
         {
             var cIDParameter = cID.HasValue ?
@@ -86,15 +110,6 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertCity", cIDParameter, countryIDParameter, cityParameter);
         }
     
-        public virtual ObjectResult<GetAllCountry_Result> GetAllCountry(Nullable<int> cID)
-        {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("CID", cID) :
-                new ObjectParameter("CID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllCountry_Result>("GetAllCountry", cIDParameter);
-        }
-    
         public virtual int InsertUpdateCountry(Nullable<int> cID, string countryName)
         {
             var cIDParameter = cID.HasValue ?
@@ -108,39 +123,21 @@ namespace SampleWebApi.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertUpdateCountry", cIDParameter, countryNameParameter);
         }
     
-        public virtual ObjectResult<GetCity_Result2> GetCity(Nullable<int> cID)
+        public virtual int Sp_InsertEduMst(Nullable<int> eID, string eName, Nullable<int> isActive)
         {
-            var cIDParameter = cID.HasValue ?
-                new ObjectParameter("CID", cID) :
-                new ObjectParameter("CID", typeof(int));
+            var eIDParameter = eID.HasValue ?
+                new ObjectParameter("EID", eID) :
+                new ObjectParameter("EID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCity_Result2>("GetCity", cIDParameter);
-        }
+            var eNameParameter = eName != null ?
+                new ObjectParameter("EName", eName) :
+                new ObjectParameter("EName", typeof(string));
     
-        public virtual int Sp_InsertUpdateDoc(Nullable<int> docID, Nullable<int> empNo, string docName)
-        {
-            var docIDParameter = docID.HasValue ?
-                new ObjectParameter("DocID", docID) :
-                new ObjectParameter("DocID", typeof(int));
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(int));
     
-            var empNoParameter = empNo.HasValue ?
-                new ObjectParameter("EmpNo", empNo) :
-                new ObjectParameter("EmpNo", typeof(int));
-    
-            var docNameParameter = docName != null ?
-                new ObjectParameter("DocName", docName) :
-                new ObjectParameter("DocName", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertUpdateDoc", docIDParameter, empNoParameter, docNameParameter);
-        }
-    
-        public virtual ObjectResult<GetEmpDetails_Result1> GetEmpDetails(Nullable<int> empNo)
-        {
-            var empNoParameter = empNo.HasValue ?
-                new ObjectParameter("EmpNo", empNo) :
-                new ObjectParameter("EmpNo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpDetails_Result1>("GetEmpDetails", empNoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertEduMst", eIDParameter, eNameParameter, isActiveParameter);
         }
     }
 }

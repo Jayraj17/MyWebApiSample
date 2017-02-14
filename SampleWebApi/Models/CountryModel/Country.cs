@@ -11,7 +11,7 @@ namespace SampleWebApi.Models.CountryModel
         CountryDTO objCnty = new CountryDTO();
         public CountryDTO SaveCountry(CountryDTO obj)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 using (var dbContextTransaction = DB.Database.BeginTransaction())
                 {
@@ -39,7 +39,7 @@ namespace SampleWebApi.Models.CountryModel
         }
         public bool UpdateCountry(CountryDTO obj)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 using (var dbContextTransaction = DB.Database.BeginTransaction())
                 {
@@ -68,7 +68,7 @@ namespace SampleWebApi.Models.CountryModel
 
         public IEnumerable<CountryDTO> GetAll()
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 DB.Configuration.ProxyCreationEnabled = false;
                 DB.Configuration.LazyLoadingEnabled = false;
@@ -84,7 +84,7 @@ namespace SampleWebApi.Models.CountryModel
 
         public CountryDTO Get(int id)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 DB.Configuration.ProxyCreationEnabled = false;
                 DB.Configuration.LazyLoadingEnabled = false;
@@ -101,7 +101,7 @@ namespace SampleWebApi.Models.CountryModel
 
         public IEnumerable<CountryDTO> ConvertObjectToData(int id)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 var Result = from result in DB.GetAllCountry(id).ToList()
                              select new CountryDTO

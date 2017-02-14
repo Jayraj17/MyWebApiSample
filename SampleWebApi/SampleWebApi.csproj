@@ -82,7 +82,19 @@
   <ItemGroup>
     <Content Include="DBScript\DataBase.sql" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Models\DeveloperEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeveloperEntity.edmx</DependentUpon>
+      <LastGenOutput>DeveloperEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DeveloperEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DeveloperEntity.edmx</DependentUpon>
+      <LastGenOutput>DeveloperEntity.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -92,71 +104,49 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CityMaster.cs">
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CityModel\City.cs" />
     <Compile Include="Models\CityModel\ICity.cs" />
-    <Compile Include="Models\CountryMaster.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CountryModel\Country.cs" />
     <Compile Include="Models\CountryModel\ICountry.cs" />
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
+    <Compile Include="Models\DeveloperEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeveloperEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeveloperEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeveloperEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeveloperEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EmpModel\EmpCls.cs" />
     <Compile Include="Models\EmpModel\IEmpCls.cs" />
     <Compile Include="Models\GetAllCountry_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GetCity1_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCity_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GetCity_Result1.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GetCity_Result2.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetEmpDetails_Result.cs">
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SampleEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SampleEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SampleEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SampleEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SampleEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SampleEntity.edmx</DependentUpon>
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\SampleEntity.edmx">
+    <EntityDeploy Include="Models\DeveloperEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SampleEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>DeveloperEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SampleEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SampleEntity.edmx</DependentUpon>
-      <LastGenOutput>SampleEntity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SampleEntity.edmx.diagram">
-      <DependentUpon>SampleEntity.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\SampleEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SampleEntity.edmx</DependentUpon>
-      <LastGenOutput>SampleEntity.cs</LastGenOutput>
+    <Content Include="Models\DeveloperEntity.edmx.diagram">
+      <DependentUpon>DeveloperEntity.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

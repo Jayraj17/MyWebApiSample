@@ -14,7 +14,7 @@ namespace SampleWebApi.Models.EmpModel
 
         public EmpDTO SaveEmployee(EmpDTO obj)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 using (var dbContextTransaction = DB.Database.BeginTransaction())
                 {
@@ -46,7 +46,7 @@ namespace SampleWebApi.Models.EmpModel
 
         public DocDTO AddDoc(DocDTO obj)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 using (var dbContextTransaction = DB.Database.BeginTransaction())
                 {
@@ -77,7 +77,7 @@ namespace SampleWebApi.Models.EmpModel
 
         public IEnumerable<EmpDTO> GetAll()
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 DB.Configuration.ProxyCreationEnabled = false;
                 DB.Configuration.LazyLoadingEnabled = false;
@@ -93,7 +93,7 @@ namespace SampleWebApi.Models.EmpModel
 
         public EmpDTO Get(int id)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 DB.Configuration.ProxyCreationEnabled = false;
                 DB.Configuration.LazyLoadingEnabled = false;
@@ -112,7 +112,7 @@ namespace SampleWebApi.Models.EmpModel
 
         public IEnumerable<EmpDTO> ConvertObjectToData(int id)
         {
-            using (GeesemedLocalEntities DB = new GeesemedLocalEntities())
+            using (DeveloperEntities DB = new DeveloperEntities())
             {
                 var Result = from result in DB.GetEmpDetails(id).ToList()
                              select new EmpDTO

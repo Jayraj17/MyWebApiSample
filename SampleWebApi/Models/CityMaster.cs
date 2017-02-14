@@ -10,13 +10,13 @@
 namespace SampleWebApi.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class GetCity_Result2
+    public partial class CityMaster
     {
         public int CID { get; set; }
-        public Nullable<int> CountryID { get; set; }
-        public string CountryName { get; set; }
         public string CityName { get; set; }
+        public Nullable<int> CountryID { get; set; }
         public Nullable<int> IsActive { get; set; }
     }
 }
