@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.IO;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace SampleMVCApplication.Controllers.Employee
 {
@@ -105,7 +106,8 @@ namespace SampleMVCApplication.Controllers.Employee
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:6198/");
+                //client.BaseAddress = new Uri("http://localhost:6198/");
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["APIURL"]);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -121,11 +123,14 @@ namespace SampleMVCApplication.Controllers.Employee
 
 
                 for (int i = 0; i < count; i++)
-                {                                
+                {
 
                     objDTO.DocDTO.DocName = myTempPaths[i];
                     objDTO.DocDTO.EmpNo = Convert.ToInt32(response.ReasonPhrase);
-                    client.BaseAddress = new Uri("http://localhost:6198/");
+                    //client.BaseAddress = new Uri("http://localhost:6198/");
+                    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["APIURL"]);
+
+
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response1 = client.PostAsJsonAsync("api/EmpApi/AddDoc/", objDTO).Result;
@@ -154,7 +159,8 @@ namespace SampleMVCApplication.Controllers.Employee
             {
                 var client = new HttpClient();
 
-                var FillLogin = client.GetAsync("http://localhost:6198/api/EmpApi/GetEmp").Result
+                // var FillLogin = client.GetAsync("http://localhost:6198/api/EmpApi/GetEmp").Result
+                var FillLogin = client.GetAsync(ConfigurationManager.AppSettings["APIURL"] + "/api/EmpApi/GetEmp").Result
          .Content.ReadAsAsync<List<EmpDTO>>().Result.Where(item => item.UserName == obj.UserName && item.Password == obj.Password).SingleOrDefault();
 
                 //var MyEmpDate = new EmpDTO
@@ -167,8 +173,8 @@ namespace SampleMVCApplication.Controllers.Employee
                     return RedirectToAction("Login", "Emp");
                 }
                 else
-                {                 
-                    return RedirectToAction("Index","Home");
+                {
+                    return RedirectToAction("Index", "Home");
                 }
 
             }
