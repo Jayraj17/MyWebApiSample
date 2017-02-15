@@ -58,7 +58,7 @@ namespace SampleWebApi.Models.EmpModel
                         {
                             throw new ArgumentNullException("item");
                         }
-                        DB.Sp_InsertUpdateDoc(0,obj.EmpNo,obj.DocName);
+                       // DB.Sp_InsertUpdateDoc(0,obj.EmpNo,obj.DocName);
                         //obj.ResultID = Convert.ToString(OutputParamValue.Value);
                         DB.SaveChanges();
                         dbContextTransaction.Commit();
@@ -114,7 +114,7 @@ namespace SampleWebApi.Models.EmpModel
         {
             using (DeveloperEntities DB = new DeveloperEntities())
             {
-                var Result = from result in DB.GetEmpDetails(id).ToList()
+                var Result = from result in DB.GetEmpDetails("").ToList()
                              select new EmpDTO
                              {
 
@@ -123,7 +123,7 @@ namespace SampleWebApi.Models.EmpModel
                                  Salary = result.Salary,
                                  DeptName = result.DeptName,
                                  Designation=result.Designation,
-                                 UserName=result.UserName,
+                                 UserName=result.Username,
                                  Password = result.Password                                 
                              };
 

@@ -10,9 +10,9 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <piece:extendeddropdownlist id="ddlPropertyTypes" cssclass="extendedDropDown" runat="server"
+        <%--<piece:extendeddropdownlist id="ddlPropertyTypes" cssclass="extendedDropDown" runat="server"
             tooltip="Select the type of property">
-        </piece:extendeddropdownlist>
+        </piece:extendeddropdownlist>--%>
     </div>
     </form>
 </body>

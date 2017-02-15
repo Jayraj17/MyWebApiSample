@@ -18,5 +18,8 @@ namespace SampleWebApi.Models
         public int Salary { get; set; }
         public string DeptName { get; set; }
         public string Designation { get; set; }
+
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

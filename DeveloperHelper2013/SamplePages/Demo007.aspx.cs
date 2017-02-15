@@ -14,11 +14,18 @@ namespace DeveloperHelper2013
         {
             //BindGrid();
             string tme = "jayraj.jpg";
-            string test = tme.ToString().LastIndexOf(".");
+        
+            
         }
         XDocument xmldoc;
         public void BindGrid()
         {
+            string s1, s2;
+            if (true)
+                s1 = "aaa";
+            s2 = "aaa";
+
+
             xmldoc = XDocument.Load(Server.MapPath("~/XmlDB/Emp.xml"));   //add xml document  
             var bind = xmldoc.Descendants("Employee").Select(p => new
             {

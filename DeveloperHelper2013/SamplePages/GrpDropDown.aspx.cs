@@ -41,15 +41,15 @@ namespace DeveloperHelper2013.SamplePages
                             {
                                 if (category != Convert.ToString(row["Grp"]))
                                 {
-                                    ddlPropertyTypes.ExtendedItems.Add(new SharpPieces.Web.Controls.ExtendedListItem(Convert.ToString(row["Item"]), Convert.ToString(row["ID"]), true, SharpPieces.Web.Controls.ListItemGroupingType.New, Convert.ToString(row["Grp"])));
-                                    category = Convert.ToString(row["Grp"]);
+                                    //ddlPropertyTypes.ExtendedItems.Add(new SharpPieces.Web.Controls.ExtendedListItem(Convert.ToString(row["Item"]), Convert.ToString(row["ID"]), true, SharpPieces.Web.Controls.ListItemGroupingType.New, Convert.ToString(row["Grp"])));
+                                    //category = Convert.ToString(row["Grp"]);
                                 }
                                 else
                                 {
-                                    ddlPropertyTypes.ExtendedItems.Add(new SharpPieces.Web.Controls.ExtendedListItem(Convert.ToString(row["Item"]), Convert.ToString(row["ID"]), true, SharpPieces.Web.Controls.ListItemGroupingType.Inherit, Convert.ToString(row["Grp"])));
+                                    //ddlPropertyTypes.ExtendedItems.Add(new SharpPieces.Web.Controls.ExtendedListItem(Convert.ToString(row["Item"]), Convert.ToString(row["ID"]), true, SharpPieces.Web.Controls.ListItemGroupingType.Inherit, Convert.ToString(row["Grp"])));
                                 }
                             }
-                            ddlPropertyTypes.DataBind();
+                            //ddlPropertyTypes.DataBind();
                         }
 
 
