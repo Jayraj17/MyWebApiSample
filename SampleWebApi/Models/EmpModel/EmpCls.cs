@@ -123,8 +123,8 @@ namespace SampleWebApi.Models.EmpModel
                                  Salary = result.Salary,
                                  DeptName = result.DeptName,
                                  Designation=result.Designation,
-                                 UserName=result.Username,
-                                 Password = result.Password                                 
+                                // UserName=result.Username,
+                               //  Password = result.Password                                 
                              };
 
                 return Result;

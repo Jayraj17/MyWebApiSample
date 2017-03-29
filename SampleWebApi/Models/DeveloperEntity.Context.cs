@@ -28,6 +28,7 @@ namespace SampleWebApi.Models
         }
     
         public virtual DbSet<CityMaster> CityMasters { get; set; }
+        public virtual DbSet<Product_Mst> Product_Mst { get; set; }
     
         public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
         {
@@ -138,6 +139,36 @@ namespace SampleWebApi.Models
                 new ObjectParameter("IsActive", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertEduMst", eIDParameter, eNameParameter, isActiveParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetProduct_Result> SP_GetProduct(string proName)
+        {
+            var proNameParameter = proName != null ?
+                new ObjectParameter("ProName", proName) :
+                new ObjectParameter("ProName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetProduct_Result>("SP_GetProduct", proNameParameter);
+        }
+    
+        public virtual int Sp_InsertUpdateProduct(string proID, string proName, Nullable<System.DateTime> proExpDate, Nullable<int> userID)
+        {
+            var proIDParameter = proID != null ?
+                new ObjectParameter("ProID", proID) :
+                new ObjectParameter("ProID", typeof(string));
+    
+            var proNameParameter = proName != null ?
+                new ObjectParameter("ProName", proName) :
+                new ObjectParameter("ProName", typeof(string));
+    
+            var proExpDateParameter = proExpDate.HasValue ?
+                new ObjectParameter("ProExpDate", proExpDate) :
+                new ObjectParameter("ProExpDate", typeof(System.DateTime));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_InsertUpdateProduct", proIDParameter, proNameParameter, proExpDateParameter, userIDParameter);
         }
     }
 }

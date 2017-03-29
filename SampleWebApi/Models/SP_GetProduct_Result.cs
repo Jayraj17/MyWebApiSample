@@ -11,12 +11,12 @@ namespace SampleWebApi.Models
 {
     using System;
     
-    public partial class GetEmpDetails_Result
+    public partial class SP_GetProduct_Result
     {
-        public int EmpNo { get; set; }
-        public string EmpName { get; set; }
-        public int Salary { get; set; }
-        public string DeptName { get; set; }
-        public string Designation { get; set; }
+        public System.Guid ProID { get; set; }
+        public string ProName { get; set; }
+        public Nullable<System.DateTime> ProEpxDate { get; set; }
+        public Nullable<bool> IsDelete { get; set; }
+        public Nullable<int> UserID { get; set; }
     }
 }

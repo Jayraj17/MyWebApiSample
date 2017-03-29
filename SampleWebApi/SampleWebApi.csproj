@@ -101,6 +101,7 @@
     <Compile Include="Controllers\CityCnrl\CityApiController.cs" />
     <Compile Include="Controllers\CountryCnrl\CountryApiController.cs" />
     <Compile Include="Controllers\EmpCnrl\EmpApiController.cs" />
+    <Compile Include="Controllers\Product\ProductAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,6 +136,14 @@
       <DependentUpon>DeveloperEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetEmpDetails_Result.cs">
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product\IProduct.cs" />
+    <Compile Include="Models\Product\Product.cs" />
+    <Compile Include="Models\Product_Mst.cs">
+      <DependentUpon>DeveloperEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_GetProduct_Result.cs">
       <DependentUpon>DeveloperEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
