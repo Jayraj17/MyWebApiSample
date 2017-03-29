@@ -59,7 +59,37 @@ namespace DeveloperHelper2013
             return success;         
 
 
-        }  
+        }
+
+
+          internal static DataTable GetEmployeeDetails(string EmpName)
+        {
+            try
+            {
+
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DeveloperConnectionString2"].ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+
+                           
+                cmd.Parameters.AddWithValue("@EmpName", EmpName);
+                cmd.CommandText = "GetEmpDetails";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = con;
+                con.Open();
+                da.SelectCommand = cmd;   
+                da.Fill(dt);
+                return dt;          
+
+              
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
         #endregion
 
