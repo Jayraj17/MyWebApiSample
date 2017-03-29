@@ -1,0 +1,522 @@
+﻿body {
+    padding:0;
+}
+header{background:#3e454c;padding:10px 0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);}
+.button {
+    background-color:#0094ff;color:#fff;-webkit-transition:all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition:all 1s ease;
+}
+.button.disabled {
+    pointer-events:none;
+}
+label {
+    color: #646466;
+    font-weight: normal;
+}
+.button:hover{color:#fff;background-color:#555;}
+.button:focus{color:#fff;background-color:#0094ff;}
+.glyphicon-leaf {
+    color:#0094ff;
+    font-size:30px;
+}
+.admin-icon {
+    position:relative;
+}
+.admin-icon .glyphicon-cog {
+    position: absolute;
+    left: 8px;
+    color: #E1FFFF;
+    top: 4px;
+}
+.td-border-none .table>tbody>tr>td{border:none}
+.headline {
+    display: block;
+    margin: 10px 0 25px 0;
+    border-bottom: 1px dotted #e4e9f0;
+}
+.headline h2, .headline h3, .headline h4 {
+    margin: 0 0 -2px 0;
+    padding-bottom: 5px;
+    display: inline-block;
+    border-bottom: 2px solid #72c02c;
+}
+.alert-margbtm-zero {
+    margin-bottom:0;
+}
+.required .control-label:after {
+  content:"*";
+  color:red;
+}
+/* header */
+.user-info,.project-dropdown,.issue-search {
+color:#fff;
+}
+.user-info .dropdown,.project-dropdown .dropdown {
+    text-align:right;
+    padding:0px 0px 5px 10px;
+    cursor:pointer;
+}
+.project-name {
+    color:#b7b7b7;
+    padding:0 5px;
+}
+.issue-search {
+  width:100%;
+}
+.issue-search label {
+    color:#fff;
+}
+.issue-search input {
+height:25px;
+}
+.issue-search .button{padding:0px 12px;}
+.issue-search .form-group {
+    margin:0;
+}
+.select-project{display: inline-block;width: 70%; height:auto;padding:2px 12px}
+/* /header */
+/* logo */
+.logo-text{font-size:24px;}
+.logo {
+    float:left;
+   padding-top: 5px;
+}
+.logo .logo-text{color:#fff;}
+/* /logo */
+
+/* login form */
+.login-container {
+    background:#eee;
+}
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 520px;
+}
+
+#logo-container {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 200px;
+}
+.loginform-inner{
+    padding:40px;float:left;
+    background-color:#fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* forgot password */
+.or-field{
+        width: 100%;
+    text-align: center;
+}
+/* forgot password */
+
+/* /login form */
+
+
+/* footer */
+.footer {
+    float:left;width:100%;
+    background:#3e454c;padding:10px 0;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    color:#ccc;
+}
+/* /footer */
+
+/* left menu */
+.nav-side-menu {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #2e353d;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: #e1ffff;
+  min-height: 500px;
+}
+.nav-side-menu .brand {
+  background-color: #23282e;
+  line-height: 50px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 35px;
+  cursor: pointer;
+}
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+}
+.nav-side-menu ul .sub-menu li.active,
+.nav-side-menu li .sub-menu li.active {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li.active a,
+.nav-side-menu li .sub-menu li.active a {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li,
+.nav-side-menu li .sub-menu li {
+  background-color: #181c20;
+  border: none;
+  line-height: 28px;
+  border-bottom: 1px solid #23282e;
+  margin-left: 0px;
+}
+.nav-side-menu ul .sub-menu li:hover,
+.nav-side-menu li .sub-menu li:hover {
+  background-color: #020203;
+}
+.nav-side-menu li {
+  padding-left: 0px;
+  border-left: 3px solid #2e353d;
+  border-bottom: 1px solid #23282e;
+}
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #e1ffff;
+  width: 100%;
+  display: inline-block;
+}
+.nav-side-menu li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
+.nav-side-menu li:hover {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #ffffff;
+    color: #000;
+    width: 40px;
+    text-align: center;
+  }
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+.nav-side-menu .collapsible2 .right-arrow {
+    float:right;margin-top:10px;
+}
+.nav-side-menu .sub-menu .collapsible2 .glyphicon-menu-down {
+    float:none;margin-top:0;
+}
+.collapse2 {
+        background-repeat: no-repeat;
+        background-position: -36px -17px;        
+        cursor: pointer;        
+    }
+
+    .expand {
+        background-repeat: no-repeat;        
+        cursor: pointer;
+    }
+.sub-menu.collapse span{
+    padding-left: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+}
+.sub-menu.collapse span.collapsible2{
+    padding-left:0px;
+}
+.sub-menu .sub-menu li {
+    background: #020202 !important;
+}
+/* /left menu */
+/* table */
+/*
+Force table width to 100%
+*/
+ table.table-fixedheader {
+    width: 100%;   
+}
+/*
+Set table elements to block mode.  (Normally they are inline).
+This allows a responsive table, such as one where columns can be stacked
+if the display is narrow.
+*/
+ table.table-fixedheader, table.table-fixedheader>thead, table.table-fixedheader>tbody, table.table-fixedheader>thead>tr, table.table-fixedheader>tbody>tr, table.table-fixedheader>thead>tr>th, table.table-fixedheader>tbody>td {
+    display: block;
+}
+table.table-fixedheader>thead>tr:after, table.table-fixedheader>tbody>tr:after {
+    content:' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+/*
+When scrolling the table, actually it is only the tbody portion of the
+table that scrolls (not the entire table: we want the thead to remain
+fixed).  We must specify an explicit height for the tbody.  We include
+100px as a default, but it can be overridden elsewhere.
+
+Also, we force the scrollbar to always be displayed so that the usable
+width for the table contents doesn't change (such as becoming narrower
+when a scrollbar is visible and wider when it is not).
+*/
+ table.table-fixedheader>tbody {
+    overflow-y: scroll;
+    height: 100px;
+    
+}
+/*
+We really don't want to scroll the thead contents, but we want to force
+a scrollbar to be displayed anyway so that the usable width of the thead
+will exactly match the tbody.
+*/
+ table.table-fixedheader>thead {
+    overflow-y: scroll;    
+}
+/*
+For browsers that support it (webkit), we set the background color of
+the unneeded scrollbar in the thead to make it invisible.  (Setting
+visiblity: hidden defeats the purpose, as this alters the usable width
+of the thead.)
+*/
+ table.table-fixedheader>thead::-webkit-scrollbar {
+    background-color: inherit;
+}
+
+
+table.table-fixedheader>thead>tr>th:after, table.table-fixedheader>tbody>tr>td:after {
+    content:' ';
+    display: table-cell;
+    visibility: hidden;
+    clear: both;
+}
+
+/*
+We want to set <th> and <td> elements to float left.
+We also must explicitly set the width for each column (both for the <th>
+and the <td>).  We set to 20% here a default placeholder, but it can be
+overridden elsewhere.
+*/
+
+ table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
+    float: left;    
+    word-wrap:break-word;     
+}
+.right-container {
+    overflow:hidden;
+    overflow-y:auto;
+    padding-top:10px;
+}
+.all-master-data {
+position:absolute;
+right:-1000px;
+-webkit-transition:all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition:all 0.5s ease;
+}
+/* /table */
+
+/* tree menu */
+.tree-menu {
+border:1px solid #ccc;
+padding:10px;
+border-radius:5px;
+overflow:auto;
+}
+    .collapse1 {
+        background-repeat: no-repeat;
+        background-position: -36px -17px;        
+        cursor: pointer;
+    }
+
+    .expand {
+        background-repeat: no-repeat;
+        background-position: -50px -17px;        
+        cursor: pointer;
+    }
+
+   .tree li {
+            margin: 0px 0;
+            list-style-type: none;
+            position: relative;
+            padding: 25px 5px 0px 5px;
+        }
+
+        .tree li::before{
+            content: '';
+            position: absolute;
+            top: 0px;
+            width: 1px;
+            height: 100%;
+            right: auto;
+            left: -20px;
+            border-left: 1px solid #ccc;
+            bottom: 50px;
+        }
+        .tree li::after{
+            content: '';
+            position: absolute;
+            top: 35px;
+            width: 25px;
+            height: 20px;
+            right: auto;
+            left: -20px;
+            border-top: 1px solid #ccc;
+        }
+        .tree li a{
+            display: inline-block;
+            /*border: 1px solid #ccc;
+            padding: 5px 10px;*/
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight :normal;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+        }
+
+        /*Remove connectors before root*/
+        .tree > ul > li::before, .tree > ul > li::after{
+            border: 0;
+        }
+        /*Remove connectors after last child*/
+        .tree li:last-child::before{
+              height: 35px;
+        }
+
+
+        .tree:before {
+            bottom: 16px;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            top: -21px;
+            width: 1px;
+            z-index: 1;
+        }
+
+        .tree ul:after {
+            content: "";
+            height: 20px;
+            left: -29px;
+            position: absolute;
+            right: auto;
+            top: 37px;
+            width: 34px;
+        }
+        *:before, *:after {
+            box-sizing: border-box;
+        }
+        *:before, *:after {
+            box-sizing: border-box;
+        }
+        .tree {
+            overflow: auto;
+            padding-left: 0px;
+            position: relative;
+        }
+.tree-submenu li a{
+    margin-left:5px;
+}
+.tree label {margin-bottom:0px;}
+/* /tree menu */
+
+/* user profile */
+.settings-left {
+    height: 100%;
+}
+.settings-right {
+    border-left: 1px solid #ccc;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 2s linear;
+    -webkit-transition: all 2s linear;
+    overflow:auto;
+}
+.profile-photo {
+    text-align: center;
+}
+.pro-pics {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 174px;
+    height: 157px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.icon-camera {
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    font-size: 24px;
+    color:#ccc; 
+}
+.changepass {
+    font-size: 12px;
+    cursor: pointer;
+    background: none;
+}
+.changepassword {
+    display: none;
+}
+.newpass {
+    display: none;
+}
+.pro-pics img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+/* /user profile */

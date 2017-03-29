@@ -1,0 +1,76 @@
+﻿@model  SampleMapper.Product_DTO
+@{
+    ViewBag.Title = "Product";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {      
+        $("#SearchString").keyup(function () {
+
+            $.ajax({
+                url: '@Url.Action("Search", "Product")'
+                , cache: true
+                , type: "get"
+                , data: { search: $("#SearchString").val() }
+            }).done(function (responseData, props) {
+                $("#gridDiv").html(responseData);
+            });
+        });      
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-lg-12 form-inline">
+        <div class="row">
+            <div class="headline">
+                <h3>Project</h3>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    <label>Search</label>
+                    @Html.TextBox("SearchString", string.Empty, new { @class = "form-control", @placeholder = "Search" })                
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 text-right">
+                <div class="form-group">
+                    <input type="submit" class="btn button addnew-input-group" value="Add new" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+@using (Html.BeginForm(new AjaxOptions { UpdateTargetId = "divProduct" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row" id="divProduct">
+        <div style="width:100%; float:left" class="table-input-field">
+            <div class="col-lg-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="gridDiv">
+                        @Html.Partial("_PartialProductGrid", Model)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="all-master-data" style="width:50%; float:left;">
+            <div class="col-lg-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body td-border-none table-responsive">
+                        @Html.Partial("_PartialProductEdit", Model)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

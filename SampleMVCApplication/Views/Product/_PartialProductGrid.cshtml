@@ -1,0 +1,27 @@
+﻿@model  SampleMapper.Product_DTO
+@using SampleMVCApplication.Helper
+
+
+@{
+    WebGrid grid = new WebGrid(Model.ProductGrid, rowsPerPage: 5, ajaxUpdateContainerId: "ProductGrid");
+}
+
+
+@grid.GetHtml(
+    htmlAttributes: new { id = "ProductGrid" },
+tableStyle: "table",
+
+mode: WebGridPagerModes.All,
+firstText: "<< ",
+previousText: "< ",
+nextText: " >",
+lastText: " >>",
+columns: grid.Columns(
+
+grid.Column("ProName", "Product Name"),
+        //grid.Column("ProjectVer", "Project Ver", canSort: false), //the model fields to display
+        //grid.Column("Active", "Active", canSort: false),
+        //grid.Column("Created Date", format: item => ((item.Created_Date == null) ? "" : item.Created_Date.ToString("MM/dd/yyyy")), canSort: false),
+grid.Column("Action", format: @<text> @Html.EncodedActionLink("Edit", "product", "Project", new { id = item.ProID }, null)</text>, style: "col3Width", canSort: false)
+                             )
+        )

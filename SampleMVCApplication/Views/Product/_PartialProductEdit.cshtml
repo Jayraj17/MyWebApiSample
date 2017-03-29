@@ -1,0 +1,97 @@
+﻿@model  SampleMapper.Product_DTO
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    function Validate() {
+        if ((document.getElementById("txtProductName").value.trim() == "") && (document.getElementById("txtProExpDate").value.trim() == "")) {
+            $('#txtProductName').css('border-color', 'red');
+            $('#txtProExpDate').css('border-color', 'red');
+            return false;
+        }
+
+        if (document.getElementById("txtProductName").value.trim() == "") {
+            $('#txtProductName').css('border-color', 'red');
+            document.getElementById("txtProductName").focus();
+            return false;
+        }
+        else {
+            $('#txtProductName').css('border-color', '');
+        }
+        if (document.getElementById("txtProExpDate").value.trim() == "") {
+            $('#txtProExpDate').css('border-color', 'red');
+            document.getElementById("txtProExpDate").focus();
+            return false;
+        }
+        else {
+            $('#txtProExpDate').css('border-color', '');
+        }
+        return true;
+    }
+
+
+    function valid() {
+
+        var count = 0;
+        var txtProductName = document.getElementById("txtProductName");
+        var txtProExpDate = document.getElementById("txtProExpDate");
+
+        count += (((validatetextbox(txtProductName)) == false) ? 1 : 0);
+        count += ((validatetextbox(txtProExpDate)) == false ? 1 : 0);
+
+        if (count > 0) {
+            return false;
+        }
+
+        return true;
+
+    }
+
+
+    function validatetextbox(e) {
+        if (trim(e.value) == "") {
+            $(e).css('border-color', 'red');
+            return false;
+        }
+        else {
+            $(e).css('border-color', '');
+            return true;
+        }
+    }
+</script>
+
+@if (TempData["ErrorProductExist"] != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#asAlert").modal('show');
+            $(".allalert").html('@TempData["ErrorProjectExist"]');
+        });
+    </script>
+}
+
+<table class="table">
+    <tbody style="height:110px">
+        <tr>
+            <td class="required">
+                @Html.HiddenFor(item => item.ProductEdit.ProID)
+                @Html.Label("Project Name", new { @class = "control-label" })
+                @Html.TextBoxFor(item => item.ProductEdit.ProName, new { @placeholder = "Product Name", @class = "form-control", id = "txtProductName", @autocomplete = "off" })
+            </td>
+        </tr>
+        <tr>
+            <td class="required">
+                @Html.HiddenFor(item => item.ProductEdit.ProExpDate)
+                @Html.Label("Project Name", new { @class = "control-label" })
+                @Html.TextBoxFor(item => item.ProductEdit.ProExpDate, new { @placeholder = "Product Exp Date", @class = "form-control", id = "txtProExpDate", @autocomplete = "off" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="save" type="submit" value="Save" class="btn button" formaction="../Product/Save" onclick="return valid();" />
+                <input type="submit" value="Cancel" class="btn button cancel-edit-details" formaction="../Product/Product" />
+            </td>
+        </tr>
+
+    </tbody>
+</table>
