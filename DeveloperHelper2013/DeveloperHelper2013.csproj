@@ -160,6 +160,7 @@
       <DependentUpon>Sample.mdf</DependentUpon>
     </Content>
     <Content Include="Css\token-input.css" />
+    <Content Include="DBCommunication\DB.sql" />
     <Content Include="DBScript\DB.sql" />
     <Content Include="DLL\SharpPieces.Web.Controls.dll" />
     <Content Include="Images\DownP.png" />
@@ -553,6 +554,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="SamplePages\ExportToExcelClient.aspx" />
     <Content Include="SamplePages\FaceBookAuto.aspx" />
+    <Content Include="SamplePages\GetEmpDetials.aspx" />
     <Content Include="SamplePages\GrpDropDown.aspx" />
     <Content Include="SamplePages\ICDSeqChange.aspx" />
     <Content Include="SamplePages\ICDSeqChange001.aspx" />
@@ -779,6 +781,13 @@
     </Compile>
     <Compile Include="SamplePages\FaceBookAuto.aspx.designer.cs">
       <DependentUpon>FaceBookAuto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\GetEmpDetials.aspx.cs">
+      <DependentUpon>GetEmpDetials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\GetEmpDetials.aspx.designer.cs">
+      <DependentUpon>GetEmpDetials.aspx</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\GrpDropDown.aspx.cs">
       <DependentUpon>GrpDropDown.aspx</DependentUpon>
