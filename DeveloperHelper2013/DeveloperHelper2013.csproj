@@ -160,6 +160,7 @@
       <DependentUpon>Sample.mdf</DependentUpon>
     </Content>
     <Content Include="Css\token-input.css" />
+    <Content Include="DBScript\DB.sql" />
     <Content Include="DLL\SharpPieces.Web.Controls.dll" />
     <Content Include="Images\DownP.png" />
     <Content Include="Images\GrayClose.png" />
@@ -550,6 +551,7 @@
     <Content Include="SamplePages\DuplicateRemoveWord.aspx" />
     <Content Include="SamplePages\EditorDemo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="SamplePages\ExportToExcelClient.aspx" />
     <Content Include="SamplePages\FaceBookAuto.aspx" />
     <Content Include="SamplePages\GrpDropDown.aspx" />
     <Content Include="SamplePages\ICDSeqChange.aspx" />
@@ -650,6 +652,7 @@
     <Content Include="SamplePages\MoveRecordListBox.aspx" />
     <Content Include="SamplePages\SpecialCharNotAllow.aspx" />
     <Content Include="SamplePages\ValidTimeCheckInCheckOut.aspx" />
+    <Content Include="SamplePages\zzzdumm.aspx" />
     <Content Include="Scripts\jquery.tokeninput.js" />
     <Content Include="XmlDB\Emp.xml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -763,6 +766,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\ExportToExcelClient.aspx.cs">
+      <DependentUpon>ExportToExcelClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\ExportToExcelClient.aspx.designer.cs">
+      <DependentUpon>ExportToExcelClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\FaceBookAuto.aspx.cs">
       <DependentUpon>FaceBookAuto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -847,6 +857,13 @@
     </Compile>
     <Compile Include="SamplePages\ValidTimeCheckInCheckOut.aspx.designer.cs">
       <DependentUpon>ValidTimeCheckInCheckOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\zzzdumm.aspx.cs">
+      <DependentUpon>zzzdumm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\zzzdumm.aspx.designer.cs">
+      <DependentUpon>zzzdumm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="SamplePages\TimerTestDemo.aspx.cs">
