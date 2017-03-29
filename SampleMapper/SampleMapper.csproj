@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CityDTO.cs" />
     <Compile Include="EmpDTO.cs" />
+    <Compile Include="Product_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
