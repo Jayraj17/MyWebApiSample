@@ -2,7 +2,7 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-
+    $("#txtProExpDate").datepicker({ constrainInput: true }).attr('readonly', 'readonly');
     function Validate() {
         if ((document.getElementById("txtProductName").value.trim() == "") && (document.getElementById("txtProExpDate").value.trim() == "")) {
             $('#txtProductName').css('border-color', 'red');
@@ -82,8 +82,9 @@
         <tr>
             <td class="required">
                 @Html.HiddenFor(item => item.ProductEdit.ProExpDate)
-                @Html.Label("Project Name", new { @class = "control-label" })
-                @Html.TextBoxFor(item => item.ProductEdit.ProExpDate, new { @placeholder = "Product Exp Date", @class = "form-control", id = "txtProExpDate", @autocomplete = "off" })
+                @Html.Label("Project Exp Date", new { @class = "control-label" })
+                @Html.TextBoxFor(item => item.ProductEdit.ProExpDate,"{0:MM/dd/yyyy}", new { @placeholder = "Product Exp Date", @class = "form-control", id = "txtProExpDate", @autocomplete = "off" })
+                
             </td>
         </tr>
         <tr>

@@ -19,9 +19,9 @@ lastText: " >>",
 columns: grid.Columns(
 
 grid.Column("ProName", "Product Name"),
+    grid.Column("ProExpDate", "Product Exp Date"),
         //grid.Column("ProjectVer", "Project Ver", canSort: false), //the model fields to display
         //grid.Column("Active", "Active", canSort: false),
         //grid.Column("Created Date", format: item => ((item.Created_Date == null) ? "" : item.Created_Date.ToString("MM/dd/yyyy")), canSort: false),
-grid.Column("Action", format: @<text> @Html.EncodedActionLink("Edit", "product", "Project", new { id = item.ProID }, null)</text>, style: "col3Width", canSort: false)
-                             )
-        )
+        grid.Column("Action", format: @<text> @Html.EncodedActionLink("Edit", "product", "Project", new { id = item.ProID }, null)</text>, style: "col3Width", canSort: false),
+grid.Column("Delete", format: @<text> @Html.EncodedActionLink("Delete", "product", "Project", new { id = item.ProID }, null)</text>, style: "col3Width", canSort: false)))
