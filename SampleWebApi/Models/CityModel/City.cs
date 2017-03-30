@@ -18,6 +18,7 @@ namespace SampleWebApi.Models.CityModel
             {
                 using (var dbContextTransaction = DB.Database.BeginTransaction())
                 {
+
                     try
                     {
                         DB.Configuration.ProxyCreationEnabled = false;

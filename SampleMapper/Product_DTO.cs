@@ -13,8 +13,8 @@ namespace SampleMapper
         public Nullable<System.DateTime> ProExpDate { get; set; }
         public int UserID { get; set; }
 
-        public IEnumerable<Product_DTO> ProjectGrid { get; set; }
-        public Product_DTO ProjectEdit { get; set; }
+        public IEnumerable<Product_DTO> ProductGrid { get; set; }
+        public Product_DTO ProductEdit { get; set; }
         
     }
 }

@@ -38,7 +38,7 @@ namespace SampleWebApi.Models.Product
                 var AllProductData = ConvertProjectsObjectData("");
                 if (AllProductData != null)
                 {
-                    ObjProductDTO.ProjectGrid = AllProductData;
+                    ObjProductDTO.ProductGrid = AllProductData;
                     return AllProductData;
                 }
                 return null;
@@ -54,7 +54,7 @@ namespace SampleWebApi.Models.Product
                 var ProductData = ConvertProjectsObjectData(ProIDStr);
                 if (ProductData != null && ProductData.Count() > 0)
                 {
-                    ObjProductDTO.ProjectEdit = ProductData.Single();
+                    ObjProductDTO.ProductEdit = ProductData.Single();
                     return ProductData.SingleOrDefault();
                 }
                 return null;

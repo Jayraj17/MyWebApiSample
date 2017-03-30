@@ -162,6 +162,7 @@
     <Content Include="Css\token-input.css" />
     <Content Include="DBCommunication\DB.sql" />
     <Content Include="DBScript\DB.sql" />
+    <Content Include="DBScript\Developer.sql" />
     <Content Include="DLL\SharpPieces.Web.Controls.dll" />
     <Content Include="Images\DownP.png" />
     <Content Include="Images\GrayClose.png" />
