@@ -1,8 +1,14 @@
 ﻿@model  SampleMapper.Product_DTO
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+
+ 
+
 <script type="text/javascript">
-    $("#txtProExpDate").datepicker({ constrainInput: true }).attr('readonly', 'readonly');
+  
     function Validate() {
         if ((document.getElementById("txtProductName").value.trim() == "") && (document.getElementById("txtProExpDate").value.trim() == "")) {
             $('#txtProductName').css('border-color', 'red');
@@ -26,6 +32,7 @@
         else {
             $('#txtProExpDate').css('border-color', '');
         }
+
         return true;
     }
 
@@ -63,9 +70,13 @@
 @if (TempData["ErrorProductExist"] != null)
 {
     <script type="text/javascript">
+        $("#txtProExpDate").datepicker({ constrainInput: true }).attr('readonly', 'readonly');
         $(document).ready(function () {
             $("#asAlert").modal('show');
             $(".allalert").html('@TempData["ErrorProjectExist"]');
+            $("#txtProExpDate").datepicker({ format: "yyyy/mm/dd" });          
+
+
         });
     </script>
 }
