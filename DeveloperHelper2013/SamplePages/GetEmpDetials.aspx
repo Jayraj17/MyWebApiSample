@@ -9,9 +9,68 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <table>
+            <tr>
+                <td>Name :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtName" />
+                </td>
+            </tr>
+            <tr>
+                <td>Salary :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtSal" />
+                </td>
+            </tr>
+            <tr>
+                <td>Department :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtDep" />
+                </td>
+            </tr>
+            <tr>
+                <td>Designation :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtDes" />
+                </td>
+            </tr>
+            <tr>
+                <td>File:- 
+                </td>
+                <td>
+                    <input type="url" id="TxtFile" />
+                </td>
+            </tr>
+            <tr>
+                <td>User Name :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtUser" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password :- 
+                </td>
+                <td>
+                    <input type="password" id="TxtPass" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Save" />
+                    <input type="button" value="Clear" />
+
+                </td>
+
+
+            </tr>
+        </table>
         <div>
-
-
             <table border="1" id="EmpTbl"></table>
         </div>
     </form>
@@ -27,11 +86,11 @@
         function BindEMP() {
             try {
                 var SendObj = {};
-                SendObj.Name= '';
+                SendObj.Name = '';
                 $.ajax({
                     type: "POST",
                     url: "GetEmpDetials.aspx/GetEmpDetails",
-                    contentType: "application/json;charset=utf-8",                   
+                    contentType: "application/json;charset=utf-8",
                     data: "{SendObj:" + JSON.stringify(SendObj) + "}",
                     dataType: "json",
                     success: function (data) {
