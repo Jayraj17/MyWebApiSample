@@ -23,6 +23,8 @@
         <asp:HiddenField ID="HdnChartDate" runat="server" />
         <asp:HiddenField ID="hdnClientID_Session" runat="server" ClientIDMode="Static" />
 
+
+
         <div class="superbill-container">
             <div class="superbill-container-content">
                 <div class="ready-bill-outer">

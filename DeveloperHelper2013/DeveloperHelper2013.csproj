@@ -657,6 +657,7 @@
     <Content Include="SamplePages\ValidTimeCheckInCheckOut.aspx" />
     <Content Include="SamplePages\zzzdumm.aspx" />
     <Content Include="Scripts\jquery.tokeninput.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="XmlDB\Emp.xml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="SamplePages\Password.aspx" />
@@ -693,7 +694,6 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="SamplePages\TimerTestDemo.aspx" />
