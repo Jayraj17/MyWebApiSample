@@ -16,6 +16,7 @@ namespace DeveloperHelper2013
         {
 
 
+
         }
         [System.Web.Services.WebMethod]
         public static string SaveImage(Dictionary<string, string> SendObj)

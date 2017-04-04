@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="MDOffice_LCA_Compendium.xsd" generated="2017-02-07T15:50:20">
+<MDOffice_LCA_Compendium>
+<Order_x0020_Code>000315</Order_x0020_Code>
+<Order_x0020_Code_x0020_Name>CK+Cl+Creat+K+Na+Pheoch</Order_x0020_Code_x0020_Name>
+<Orderable>Y</Orderable>
+<Published>P</Published>
+<CPT_x0020_Code>82435 001 84132 001 83835 001 82570 001 82550 001 84295 001 82565 001</CPT_x0020_Code>
+<Proc_x0020_Class>GN</Proc_x0020_Class>
+<Result_x0020_Code>070016</Result_x0020_Code>
+<Result_x0020_Code_x0020_Name>Creatinine, Random U</Result_x0020_Code_x0020_Name>
+<UofM>mg/dL</UofM>
+<Result_x0020_Type>1</Result_x0020_Type>
+<Result_x0020_LOINC>2161-8</Result_x0020_LOINC>
+<Result_x0020_Proc_x0020_Class>TX</Result_x0020_Proc_x0020_Class>
+<Special_x0020_Instructions>Not Available</Special_x0020_Instructions>
+<Specimen_x0020_Type>Serum and urine (first morning)</Specimen_x0020_Type>
+<Specimen_x0020_Volume>2 mL serum and 25 mL urine</Specimen_x0020_Volume>
+<Minimum_x0020_Volume>Not Available</Minimum_x0020_Volume>
+<Specimen_x0020_Container>Red-stopper tube or serum-separator tube and random urine transport tube or &quot;Urine Monovette (R) with pH Stabilizer&quot; (LabCorp ID 56015). Monovette (R) instructions accompany units.</Specimen_x0020_Container>
+<Specimen_x0020_Collection>Separate serum from cells within 45 minutes of venipuncture. Collect urine and transfer to a random urine transport tube or &quot;Urine Monovette (R) with pH Stabilizer&quot; (LabCorp ID 56015).</Specimen_x0020_Collection>
+<Specimen_x0020_Storage>Refrigerate</Specimen_x0020_Storage>
+<Testing_x0020_Frequency>Not Available</Testing_x0020_Frequency>
+<Method>See individual test components</Method>
+<Synonym>Not Available</Synonym>
+<Stable_x0020_Room_x0020_Temp>Not Available</Stable_x0020_Room_x0020_Temp>
+<Stable_x0020_Refrigerated>Not Available</Stable_x0020_Refrigerated>
+<Stable_x0020_Frozen>Not Available</Stable_x0020_Frozen>
+<Cause_x0020_for_x0020_Rejection>Not Available</Cause_x0020_for_x0020_Rejection>
+<Test_x0020_Type>S</Test_x0020_Type>
+<Last_x0020_Change_x0020_Date>2016-10-24T00:00:00</Last_x0020_Change_x0020_Date>
+</MDOffice_LCA_Compendium>
+</dataroot>
