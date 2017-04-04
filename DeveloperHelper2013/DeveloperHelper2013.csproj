@@ -712,6 +712,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ITextSharpHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DBCommunication\SqlConnectionCls.cs" />
     <Compile Include="SamplePages\AutoComplete.aspx.cs">
       <DependentUpon>AutoComplete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

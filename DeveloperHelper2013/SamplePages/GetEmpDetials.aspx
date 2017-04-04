@@ -164,51 +164,7 @@
         }
 
 
-        $(".select-input").keyup(function (e) {
-            debugger;
-            var Key = "";
-            var ulId = $(this).parent().find(".select-drop").attr("id");
-            var selectUl = $(this).parent().find(".select-drop");
-            var inputVal = $(this).val();
-            if (e.keyCode != 38 && e.keyCode != 40 && e.keyCode != 13) {
-                selectUl.show();
-                $(selectUl).scrollTop(0);
-                selectUl = $("#ddlEmp").parent().find(".select-drop");
-                Key = document.getElementById('ddlEmp').value;
-
-
-                jq.ajax({
-                    context: this,
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    url: "FrmMessageAdminUtility.aspx/GetAutocompeteDetails",
-                    data: "",
-                    async: false,
-                    dataType: "json",
-                    success: function (r) {
-                        selectUl.children().remove();
-                        var Jdata = JSON.parse(r.d);
-                        if (Jdata.length > 0) {
-                            jq.each(Jdata, function (i, curRecord) {
-                                var disable = "";
-                                if (curRecord.Flag == 1) {
-                                    disable = 'disable-li';
-                                }
-                                if (i == 0) {
-                                    selectUl.append("<li class='selected " + disable + "'  id=" + curRecord.mpt_pat_unique_key + ">" + curRecord.mpt_pat_name + "</li>");
-                                }
-                                else {
-                                    selectUl.append("<li class='" + disable + "' id=" + curRecord.mpt_pat_unique_key + ">" + curRecord.mpt_pat_name + "</li>");
-                                }
-                            });
-                        }
-
-                    }
-                });
-
-
-            }
-        });
+      
            
 
     </script>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using DeveloperHelper2013.DBCommunication;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,16 +8,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 
+
+
 namespace DeveloperHelper2013
 {
     public class DBCommunication
     {
+
+    
+     
         #region GetICD
         //Connection 
+
+     
 
         string constr1 = WebConfigurationManager.ConnectionStrings["DeveloperConnectionString"].ConnectionString;
         internal DataTable GetICD()
         {
+
+         
+
+
             DataSet ds = new DataSet();
             ConStr sql = new ConStr();
             sql.Filltable(ds, "ICD_Mst", "GetAllICD", new SqlParameter[] { });
@@ -90,6 +103,14 @@ namespace DeveloperHelper2013
             }
 
         }
+
+        #endregion
+
+        #region Employee
+
+
+        InsertEmployee
+
 
         #endregion
 
