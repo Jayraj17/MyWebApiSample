@@ -13,9 +13,8 @@ namespace DeveloperHelper2013.DBCommunication
         #region GetICD
         //Connection 
 
-
-
-        string constr1 = WebConfigurationManager.ConnectionStrings["DeveloperConnectionString"].ConnectionString;
+        public static SqlConnection con = new SqlConnection(SqlConnectionCls.ConStr);
+       
         internal DataTable GetICD()
         {
 
@@ -31,8 +30,7 @@ namespace DeveloperHelper2013.DBCommunication
         internal bool ChangeSeq(string ICD, int Seq)
         {
 
-            bool success = false;
-            SqlConnection con = new SqlConnection(constr1);
+            bool success = false;           
 
             SqlCommand cmd = new SqlCommand();
 
@@ -72,8 +70,7 @@ namespace DeveloperHelper2013.DBCommunication
         {
             try
             {
-
-                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DeveloperConnectionString2"].ConnectionString);
+                               
                 SqlCommand cmd = new SqlCommand();
                 SqlDataAdapter da = new SqlDataAdapter();
                 DataTable dt = new DataTable();
@@ -108,8 +105,7 @@ namespace DeveloperHelper2013.DBCommunication
 
             try
             {
-                int Res = 0;
-                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DeveloperConnectionString2"].ConnectionString);
+                int Res = 0;               
 
                 SqlCommand cmd = new SqlCommand();
 
@@ -148,9 +144,7 @@ namespace DeveloperHelper2013.DBCommunication
         }
 
 
-       // InsertEmployee
-
-        //InsertEmployee
+      
 
 
         #endregion
