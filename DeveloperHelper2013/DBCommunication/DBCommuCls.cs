@@ -68,7 +68,7 @@ namespace DeveloperHelper2013.DBCommunication
         }
 
 
-        internal static DataTable GetEmployeeDetails(string EmpName)
+        internal static DataTable GetEmployeeDetails(string EmpName, int EmpNo)
         {
             try
             {
@@ -80,6 +80,7 @@ namespace DeveloperHelper2013.DBCommunication
 
 
                 cmd.Parameters.AddWithValue("@EmpName", EmpName);
+                cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
                 cmd.CommandText = "GetEmpDetails";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = con;
@@ -101,6 +102,53 @@ namespace DeveloperHelper2013.DBCommunication
 
         #region Employee
 
+
+        internal static int InsertEmployee(int EmpNo, string EmpName, int Salary, string DeptName, string Designation, string EmpFile, string UserName, string Password)
+        {
+
+            try
+            {
+                int Res = 0;
+                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DeveloperConnectionString2"].ConnectionString);
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Parameters.Add("@EmpNo", EmpNo);
+                cmd.Parameters.Add("@EmpName", EmpName);
+                cmd.Parameters.Add("@Salary", Salary);
+                cmd.Parameters.Add("@DeptName", DeptName);
+                cmd.Parameters.Add("@Designation", Designation);
+                cmd.Parameters.Add("@EmpFile", EmpFile);
+                cmd.Parameters.Add("@UserName", UserName);
+                cmd.Parameters.Add("@Password", Password);
+
+
+                /*OUT*/
+                cmd.Parameters.Add("@Result", SqlDbType.VarChar, 5);
+                cmd.Parameters["@Result"].Direction = ParameterDirection.Output;
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "InsertEmployee";
+                cmd.Connection = con;
+                con.Open();
+                Res = cmd.ExecuteNonQuery();
+                Res = Convert.ToInt32(cmd.Parameters["@Result"].Value.ToString());
+                con.Close();
+                return Res;
+
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        
+        
+        }
+
+
+       // InsertEmployee
 
         //InsertEmployee
 

@@ -21,16 +21,16 @@ namespace DeveloperHelper2013.SamplePages
         public void FillDetails()
         {
             DataTable dt = new DataTable();
-            dt = DBCommuCls.GetEmployeeDetails("");       
-        
+            dt = DBCommuCls.GetEmployeeDetails("",0);
+
         }
         [WebMethod]
-        public static string GetEmpDetails(Dictionary<string, string>  SendObj)
+        public static string GetEmpDetails(Dictionary<string, string> SendObj)
         {
             try
             {
                 DataTable dt = new DataTable();
-                dt = DBCommuCls.GetEmployeeDetails(SendObj["Name"]);
+                dt = DBCommuCls.GetEmployeeDetails(SendObj["Name"], Convert.ToInt32(SendObj["EmpNo"]));
                 string JsonData = JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
                 return JsonData;
             }
@@ -38,6 +38,13 @@ namespace DeveloperHelper2013.SamplePages
             {
                 throw;
             }
+        }
+        [WebMethod]
+        public static string InsertEmpData(Dictionary<string, string> SendObj)
+        {
+            string ResMsg = "";
+            int Res = DBCommuCls.InsertEmployee(0, SendObj["EmpName"], Convert.ToInt32(SendObj["Sal"]), SendObj["Dept"], SendObj["Des"], SendObj["FileName"], SendObj["UserName"], SendObj["Pass"]);
+            return ResMsg;
         }
     }
 }

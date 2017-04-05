@@ -115,7 +115,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <input type="button" value="Save" />
+                    <input type="button" value="Save" onclick="SaveData();" />
                     <input type="button" value="Clear" />
 
                 </td>
@@ -147,6 +147,7 @@
             try {
                 var SendObj = {};
                 SendObj.Name = '';
+                SendObj.EmpNo = 0;
                 $.ajax({
                     type: "POST",
                     url: "GetEmpDetials.aspx/GetEmpDetails",
@@ -173,19 +174,19 @@
         }
 
 
-        function GetEMPDDL()
-        {
+        function GetEMPDDL() {
 
             try {
                 var SendObj = {};
                 SendObj.Name = '';
+                SendObj.EmpNo = 0;
                 $.ajax({
                     type: "POST",
                     url: "GetEmpDetials.aspx/GetEmpDetails",
                     contentType: "application/json;charset=utf-8",
                     data: "{SendObj:" + JSON.stringify(SendObj) + "}",
                     dataType: "json",
-                    success: function (data) {                    
+                    success: function (data) {
 
 
                         var UserList = JSON.parse(data.d);
@@ -210,13 +211,83 @@
         }
 
 
-        function EditEMP(Obj)
-        {
-            alert(Obj);
+        function EditEMP(Obj) {
+
+            try {
+                var SendObj = {};
+                SendObj.Name = '';
+                SendObj.EmpNo = Obj;
+                $.ajax({
+                    type: "POST",
+                    url: "GetEmpDetials.aspx/GetEmpDetails",
+                    contentType: "application/json;charset=utf-8",
+                    data: "{SendObj:" + JSON.stringify(SendObj) + "}",
+                    dataType: "json",
+                    success: function (data) {
+                        AllData = JSON.parse(data.d);
+                        if (AllData.length > 0)
+                        {
+                            $("#TxtName").val(AllData[0]["EmpName"]);                          
+
+                        }
+                    }
+                });
+
+            } catch (err) {
+                alert(err);
+            }
+
         }
 
         function DeleEMP(Obj) {
             alert(Obj);
+        }
+
+
+        function SaveData() {
+            try {
+                var SendObj = {};
+                SendObj.EmpName = $("#TxtName").val();
+                SendObj.Sal = $("#TxtSal").val();
+                SendObj.Dept = $("#TxtDep").val();
+                SendObj.Des = $("#TxtDes").val();
+                SendObj.FileName = $("#TxtFile").val();
+                SendObj.UserName = $("#TxtUser").val();
+                SendObj.Pass = $("#TxtPass").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "GetEmpDetials.aspx/InsertEmpData",
+                    contentType: "application/json;charset=utf-8",
+                    data: "{SendObj:" + JSON.stringify(SendObj) + "}",
+                    dataType: "json",
+                    success: function (r) {
+                        //if (r.d != 0) {
+                        //    alert(r.d);
+                        //    BindEMP();
+                        //}
+                        BindEMP();
+                        ClearEMP();
+                    },
+                    error: function (result) {
+                        alert("Error...");
+                    }
+                });
+
+            } catch (e) {
+
+            }
+        }
+
+        function ClearEMP() {
+
+            $("#TxtName").val('');
+            $("#TxtSal").val('');
+            $("#TxtDep").val('');
+            $("#TxtDes").val('');
+            $("#TxtFile").val('');
+            $("#TxtUser").val('');
+            $("#TxtPass").val('');
         }
 
 
