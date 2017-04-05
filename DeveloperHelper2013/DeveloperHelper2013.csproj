@@ -712,6 +712,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ITextSharpHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DBCommunication\DBCommuCls.cs" />
     <Compile Include="DBCommunication\SqlConnectionCls.cs" />
     <Compile Include="SamplePages\AutoComplete.aspx.cs">
       <DependentUpon>AutoComplete.aspx</DependentUpon>
@@ -743,7 +744,6 @@
       <DependentUpon>CropImgSample.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBCommunication\ConStr.cs" />
-    <Compile Include="DBCommunication\DBCommunication.cs" />
     <Compile Include="DBCommunication\HelperCls.cs" />
     <Compile Include="SamplePages\Demo007.aspx.cs">
       <DependentUpon>Demo007.aspx</DependentUpon>

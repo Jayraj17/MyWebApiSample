@@ -7,9 +7,7 @@
     <title></title>
     <script src="../Scripts/jquery-1.9.1.js"></script>
     <style type="text/css">
-
-
-          .select-drop, .select-dropbox {
+        .select-drop, .select-dropbox {
             background: #fff;
             color: #777;
             border: 1px solid #ccc;
@@ -49,12 +47,22 @@
             box-sizing: border-box;
             padding: 5px 20px 5px 5px;
         }
-
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+
         <table>
+            <tr>
+                <td>EMP :
+                </td>
+                <td>
+
+                    <select id="ddlEMP" style="min-width: 160px" tabindex="1"></select>
+
+                </td>
+
+            </tr>
             <tr>
                 <td>Name :- 
                 </td>
@@ -119,16 +127,17 @@
             <table border="1" id="EmpTbl"></table>
             <br />
 
-             <input type="text" title="Emp" runat="server" class="select-input" id="ddlEmp" data-livalue="" placeholder="Select Emp" autocomplete="off" /><span class="search-new-icon"><i class="fa fa-search"></i></span>
-                <ul class="select-drop" style="display: none; overflow: auto; max-height: 200px;" id="ulEmp"></ul>
+            <input type="text" title="Emp" runat="server" class="select-input" id="ddlEmp" data-livalue="" placeholder="Select Emp" autocomplete="off" /><span class="search-new-icon"><i class="fa fa-search"></i></span>
+            <ul class="select-drop" style="display: none; overflow: auto; max-height: 200px;" id="ulEmp"></ul>
 
         </div>
     </form>
-     <script src="../Scripts/jquery-1.9.1.js"></script>
-    <script>       
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script>
         $(document).ready(function () {
             try {
                 BindEMP();
+                GetEMPDDL();
             } catch (err) {
                 alert(err);
             }
@@ -147,12 +156,12 @@
                     success: function (data) {
                         var DataLst = JSON.parse(data.d);
                         $('#EmpTbl').empty();
-                        var strHead = "<tr><td>EmpName</td></tr>";
+                        var strHead = "<tr><td>EmpName</td><td>Dept</td><td>Designation</td><td>Edit</td><td>Delete</td></tr>";
                         $("#EmpTbl").append(strHead);
                         if (DataLst.length > 0) {
                             $.each(DataLst, function () {
                                 var Row = $(this)[0];
-                                var snglTr = "<tr><td style='width: 30%'>" + Row.EmpName + "</td></tr>";
+                                var snglTr = "<tr><td style='width: 30%'>" + Row.EmpName + "</td><td>" + Row.DeptName + "</td><td>" + Row.Designation + "</td><td><span id='ED' onclick='EditEMP(" + Row.EmpNo + ")' >Edit</span></td><td><span id='DL' onclick='DeleEMP(" + Row.EmpNo + ")' >Delete</span></td></tr>";
                                 $("#EmpTbl").append(snglTr);
                             });
                         }
@@ -164,8 +173,55 @@
         }
 
 
-      
-           
+        function GetEMPDDL()
+        {
+
+            try {
+                var SendObj = {};
+                SendObj.Name = '';
+                $.ajax({
+                    type: "POST",
+                    url: "GetEmpDetials.aspx/GetEmpDetails",
+                    contentType: "application/json;charset=utf-8",
+                    data: "{SendObj:" + JSON.stringify(SendObj) + "}",
+                    dataType: "json",
+                    success: function (data) {                    
+
+
+                        var UserList = JSON.parse(data.d);
+                        $('#ddlEMP').empty();
+                        $('#ddlEMP').append("<option value='-1'>--Select User--</option>");
+                        if (UserList.length > 0) {
+                            $.each(UserList, function () {
+                                var Usr = $(this)[0];
+                                $('#ddlEMP').append("<option value='" + Usr.EmpName + "'>" + Usr.EmpName + "</option>");
+                            });
+
+                        }
+
+
+                    }
+                });
+            } catch (err) {
+                alert(err);
+            }
+
+
+        }
+
+
+        function EditEMP(Obj)
+        {
+            alert(Obj);
+        }
+
+        function DeleEMP(Obj) {
+            alert(Obj);
+        }
+
+
+
+
 
     </script>
 </body>

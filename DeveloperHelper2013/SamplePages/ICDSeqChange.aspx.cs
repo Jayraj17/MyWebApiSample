@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DeveloperHelper2013.DBCommunication;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace DeveloperHelper2013
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBCommunication obj = new DBCommunication();
+            DBCommuCls obj = new DBCommuCls();
            bool test =obj.ChangeSeq("007",8);
 
 
@@ -25,8 +26,8 @@ namespace DeveloperHelper2013
 
         [WebMethod]
         public static string GetICDa()
-        {           
-            DBCommunication obj = new DBCommunication();
+        {
+            DBCommuCls obj = new DBCommuCls();
             DataTable dt = obj.GetICD();          
             string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
             return json;
@@ -35,7 +36,7 @@ namespace DeveloperHelper2013
         public static string ChangeSeq(Dictionary<string, string> SendObj)
         {
             string Res="";
-           DBCommunication obj = new DBCommunication();
+            DBCommuCls obj = new DBCommuCls();
            bool Result = Convert.ToBoolean(obj.ChangeSeq(SendObj["ICD"], Convert.ToInt32(SendObj["Seq"])));
            return Res;
         }

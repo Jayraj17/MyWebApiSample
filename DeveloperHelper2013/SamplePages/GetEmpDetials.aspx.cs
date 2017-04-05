@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DeveloperHelper2013.DBCommunication;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,7 +21,7 @@ namespace DeveloperHelper2013.SamplePages
         public void FillDetails()
         {
             DataTable dt = new DataTable();
-            dt = DBCommunication.GetEmployeeDetails("");       
+            dt = DBCommuCls.GetEmployeeDetails("");       
         
         }
         [WebMethod]
@@ -29,7 +30,7 @@ namespace DeveloperHelper2013.SamplePages
             try
             {
                 DataTable dt = new DataTable();
-                dt = DBCommunication.GetEmployeeDetails(SendObj["Name"]);
+                dt = DBCommuCls.GetEmployeeDetails(SendObj["Name"]);
                 string JsonData = JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
                 return JsonData;
             }

@@ -1,6 +1,4 @@
-﻿
-using DeveloperHelper2013.DBCommunication;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,25 +6,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 
-
-
-namespace DeveloperHelper2013
+namespace DeveloperHelper2013.DBCommunication
 {
-    public class DBCommunication
+    public class DBCommuCls
     {
-
-    
-     
         #region GetICD
         //Connection 
 
-     
+
 
         string constr1 = WebConfigurationManager.ConnectionStrings["DeveloperConnectionString"].ConnectionString;
         internal DataTable GetICD()
         {
 
-         
+
 
 
             DataSet ds = new DataSet();
@@ -35,7 +28,7 @@ namespace DeveloperHelper2013
             return ds.Tables[0];
         }
 
-          internal bool ChangeSeq(string ICD,int Seq)
+        internal bool ChangeSeq(string ICD, int Seq)
         {
 
             bool success = false;
@@ -46,7 +39,7 @@ namespace DeveloperHelper2013
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "UpdateSeqICD";
             cmd.Parameters.Add("@ICD", SqlDbType.VarChar).Value = ICD;
-            cmd.Parameters.Add("@Seq", SqlDbType.Int).Value = Seq;  
+            cmd.Parameters.Add("@Seq", SqlDbType.Int).Value = Seq;
 
 
             cmd.Connection = con;
@@ -55,7 +48,7 @@ namespace DeveloperHelper2013
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
-                success = true;                
+                success = true;
 
             }
 
@@ -69,13 +62,13 @@ namespace DeveloperHelper2013
                 con.Close();
                 con.Dispose();
             }
-            return success;         
+            return success;
 
 
         }
 
 
-          internal static DataTable GetEmployeeDetails(string EmpName)
+        internal static DataTable GetEmployeeDetails(string EmpName)
         {
             try
             {
@@ -85,17 +78,17 @@ namespace DeveloperHelper2013
                 SqlDataAdapter da = new SqlDataAdapter();
                 DataTable dt = new DataTable();
 
-                           
+
                 cmd.Parameters.AddWithValue("@EmpName", EmpName);
                 cmd.CommandText = "GetEmpDetails";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = con;
                 con.Open();
-                da.SelectCommand = cmd;   
+                da.SelectCommand = cmd;
                 da.Fill(dt);
-                return dt;          
+                return dt;
 
-              
+
             }
             catch (Exception ex)
             {
@@ -109,11 +102,9 @@ namespace DeveloperHelper2013
         #region Employee
 
 
-        InsertEmployee
+        //InsertEmployee
 
 
         #endregion
-
-      
     }
 }
