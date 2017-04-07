@@ -1,5 +1,6 @@
 ﻿using DeveloperHelper2013.DBCommunication;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,7 +32,7 @@ namespace DeveloperHelper2013.SamplePages
             {
                 DataTable dt = new DataTable();
                 dt = DBCommuCls.GetEmployeeDetails(SendObj["Name"], Convert.ToInt32(SendObj["EmpNo"]));
-                string JsonData = JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
+                string JsonData = JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = "MM/dd/yyyy" });
                 return JsonData;
             }
             catch (Exception)
