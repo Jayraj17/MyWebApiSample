@@ -184,6 +184,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeCls.cs" />
     <Compile Include="Models\GetEmpDetails_Result.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
