@@ -113,6 +113,13 @@
                 </td>
             </tr>
             <tr>
+                <td>BDate :- 
+                </td>
+                <td>
+                    <input type="text" id="TxtBDate" />
+                </td>
+            </tr>
+            <tr>
                 <td></td>
                 <td>
                     <input type="button" value="Save" onclick="SaveData();" />
@@ -133,11 +140,14 @@
         </div>
     </form>
     <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
     <script>
         $(document).ready(function () {
             try {
                 BindEMP();
                 GetEMPDDL();
+                $('#TxtBDate').datepicker();
             } catch (err) {
                 alert(err);
             }
@@ -225,9 +235,8 @@
                     dataType: "json",
                     success: function (data) {
                         AllData = JSON.parse(data.d);
-                        if (AllData.length > 0)
-                        {
-                            $("#TxtName").val(AllData[0]["EmpName"]);                          
+                        if (AllData.length > 0) {
+                            $("#TxtName").val(AllData[0]["EmpName"]);
 
                         }
                     }
