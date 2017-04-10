@@ -1,0 +1,109 @@
+﻿@model EmployeeMVC.Models.Employee
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("CreateEmployee", "Employee", FormMethod.Post, new { id = "frmEmployeeMst" }))
+{
+    @Html.ValidationSummary(true)
+    <span class="LabelHeader">Employee Master</span>
+
+    <fieldset>
+        <table cellpadding="1" cellspacing="0" style="width: 750px;">
+            <tr>
+                <td>
+                    @Html.HiddenFor(model => model.EmpNo)
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    Emp Name :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.EmpName, new { style = "width:200px;", tabindex = 1, id = "TxtEmployee"})
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Emp Salary :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Salary, new { style = "width:200px;", tabindex = 1, id = "TxtSalary"})
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Department :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.DeptName, new { style = "width:200px;", tabindex = 1, id = "TxtDeptName"})
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Department :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.DeptName, new { style = "width:200px;", tabindex = 1, id = "TxtDeptName"})
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    File Name :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.EmpFile, new { style = "width:200px;", tabindex = 1, id = "TxtEmpFile"})
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    User Name :-
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.UserName, new { style = "width:200px;", tabindex = 1, id = "TxtUserName"})
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password :-
+                </td>
+                <td>
+                    @Html.PasswordFor(model => model.Password, new { style = "width:200px;", tabindex = 1, id = "TxtPassword"})
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    @if (Model.EmpNo > 0)
+                    {
+                        <input type="submit" value="Update" style="height: 24px; width: 80px;" tabindex="1" onclick="javascript:return ValidEmployeeMst()" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Save" style="height: 24px; width: 80px;" tabindex="1" onclick="javascript:return ValidEmployeeMst()" />
+                    }
+                    <input type="button" id="CmdCClear" value="Clear" style="height: 24px; width: 80px;"
+                           tabindex="1" />
+                </td>
+
+            </tr>
+
+
+
+        </table>
+        <br />
+        @Html.Raw(ViewBag.message)        
+    </fieldset>
+    <div>
+        @Html.ActionLink("Back to List", "ManageEmployee")
+
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
