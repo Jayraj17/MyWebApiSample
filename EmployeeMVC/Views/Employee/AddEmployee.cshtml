@@ -3,7 +3,7 @@
     ViewBag.Title = "Employee";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("CreateEmployee", "Employee", FormMethod.Post, new { id = "frmEmployeeMst" }))
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post, new { id = "frmEmployeeMst" }))
 {
     @Html.ValidationSummary(true)
     <span class="LabelHeader">Employee Master</span>
@@ -98,6 +98,7 @@
         <br />
         @Html.Raw(ViewBag.message)        
     </fieldset>
+}
     <div>
         @Html.ActionLink("Back to List", "ManageEmployee")
 

@@ -15,18 +15,15 @@
         <td width="100" align="center">
             Emp SrNo
         </td>
-    </tr>
-    <tr>
+
         <td width="200" align="center">
             Emp Name
         </td>
-    </tr>
-    <tr>
+
         <td width="200" align="center">
             Salary
         </td>
-    </tr>
-    <tr>
+
         <td width="200" align="center">
             Opration
         </td>
@@ -45,7 +42,7 @@
             </td>
             <td width="200" align="center">
 
-                <a href=@Url.Action("CreateEmployee", new { EmpNo = item.EmpNo })>
+                <a href=@Url.Action("AddEmployee", new { EmpNo = item.EmpNo })>
                     Edit
                 </a>
                 <a href=@Url.Action("RemoveEmployee", new { EmpNo = item.EmpNo })>
