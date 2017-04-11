@@ -72,6 +72,8 @@
                 </td>
                 <td>
                     @Html.PasswordFor(model => model.Password, new { style = "width:200px;", tabindex = 1, id = "TxtPassword"})
+
+                    @*@Html.DropDownListFor(model => model.CCountrySrNo, (IEnumerable<SelectListItem>)(ViewBag.CCountryDD), new { style = "width:140px;", id = "CCountry", tabindex = 1 })*@
                 </td>
             </tr>
 
@@ -107,4 +109,282 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
+<script src="../../Scripts/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery-ui-1.8.20.js" type="text/javascript"></script>
+<link href="../../Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet"
+      type="text/css" />
+<script type="text/javascript" language="javascript">
 
+    $(document).ready(function () {
+        alert('@ViewBag.abc');
+    });
+    $(document).ready(function () {
+        $(".date").datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+    function ValidEmployeeMst() {
+
+        if ($('#Employee').val() == '') {
+            alert('Please Enter Employee Name...');
+            $('#Employee').focus();
+            return false;
+        }
+        if ($('#Department').val() == '-9') {
+            alert('Please Select Department...');
+            $('#Department').focus();
+            return false;
+        }
+        if ($('#Designation').val() == '-9') {
+            alert('Please Select Designation...');
+            $('#Designation').focus();
+            return false;
+        }
+        if ($('#EmailId').val() == '') {
+            alert('Please Enter EmailId...');
+            $('#EmailId').focus();
+            return false;
+        }
+        if ($('#Company').val() == '-9') {
+            alert('Please Select Company...');
+            $('#Company').focus();
+            return false;
+        }
+        if ($('#Branch').val() == '-9') {
+            alert('Please Select Branch...');
+            $('#Branch').focus();
+            return false;
+        }
+
+        if ($('#PCountry').val() == '-9') {
+            alert('Please Select Permanent Country...');
+            $('#PCountry').focus();
+            return false;
+        }
+        if ($('#PState').val() == '-9') {
+            alert('Please Select Permanent State...');
+            $('#PState').focus();
+            return false;
+        }
+        if ($('#PCity').val() == '-9') {
+            alert('Please Select Permanent City...');
+            $('#PCity').focus();
+            return false;
+        }
+        if ($('#CCountry').val() == '-9') {
+            alert('Please Select Present Country...');
+            $('#CCountry').focus();
+            return false;
+        }
+        if ($('#CState').val() == '-9') {
+            alert('Please Select Present State...');
+            $('#CState').focus();
+            return false;
+        }
+        if ($('#CCity').val() == '-9') {
+            alert('Please Select Present City...');
+            $('#CCity').focus();
+            return false;
+        }
+        return true;
+    }
+    $(function () {
+        $('#Employee').focus();
+    });
+
+    $('#CmdCClear').click(function () {
+        $('#SrNo').val(0);
+        $('#Employee').val('');
+        $('#Department').val('-9');
+        $('#Designation').val('-9');
+        $('#EmailId').val('');
+        $('#Company').val('-9');
+        $('#Branch').val('-9');
+        $('#JoinDate').val('');
+        $('#LeaveDate').val('');
+        $('#PAddress').val('');
+        $('#PCountry').val('-9');
+        $('#PState').val('-9');
+        $('#PCity').val('-9');
+        $('#PZip').val('');
+        $('#CAddress').val('');
+        $('#CCountry').val('-9');
+        $('#CState').val('-9');
+        $('#CCity').val('-9');
+        $('#CZip').val('');
+        $('#Phone1').val('');
+        $('#Phone2').val('');
+        $('#Mobile').val('');
+        $('#Email').val('');
+        $('#AlternateEmail').val('');
+        $('#Employee').focus();
+    });
+
+
+    $(document).ready(function () {
+
+        $('#CCountry').change(function () {
+            if ($(this).val() != '') {
+                GetCState($(this).val());
+                GetCCity(0);
+            }
+        });
+
+        if ($('#SrNo').val() > 0) {
+            if ($('#CCountry').val() != '') {
+                // GetState($('#Country').val());
+                // GetCity(0);
+            }
+            if ($('#CState').val() != '') {
+                // GetState($('#Country').val());
+                // GetCity(0);
+            }
+        }
+        function GetCState(Countryid) {
+            if (Countryid != 0) {
+                $.ajax({
+                    url: '@Url.Action("GetState", "Employee")',
+                    type: 'POST',
+                    async: false,
+                    data: { 'Countryid': Countryid },
+                    success: function (data) {
+                        var items = '';
+                        $.each(data, function (i, state) {
+                            items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
+                        });
+                        $('#CState').html(items);
+                    }
+                });
+            }
+            else {
+                var items = '';
+                $('#CState').html(items);
+            }
+        }
+
+        $('#CState').change(function () {
+            if ($(this).val() != '') {
+                GetCCity($(this).val());
+            }
+        });
+    });
+
+    function GetCCity(Stateid) {
+        if (Stateid != 0) {
+            $.ajax({
+                url: '@Url.Action("GetCity", "Employee")',
+                type: 'POST',
+                async: false,
+                data: { 'Stateid': Stateid },
+                success: function (data) {
+                    var items = '';
+                    $.each(data, function (j, city) {
+                        items += "<option value='" + city.Value + "'>" + city.Text + "</option>";
+                    });
+                    $('#CCity').html(items);
+                }
+            });
+        }
+        else {
+            var items = '';
+            $('#CCity').html(items);
+        }
+    }
+    $(document).ready(function () {
+
+        $('#PCountry').change(function () {
+            if ($(this).val() != '') {
+                GetState($(this).val());
+                GetCity(0);
+            }
+        });
+
+        if ($('#SrNo').val() > 0) {
+            if ($('#PCountry').val() != '') {
+                // GetState($('#Country').val());
+                // GetCity(0);
+            }
+            if ($('#PState').val() != '') {
+                // GetState($('#Country').val());
+                // GetCity(0);
+            }
+        }
+        function GetState(Countryid) {
+            if (Countryid != 0) {
+                $.ajax({
+                    url: '@Url.Action("GetState", "Employee")',
+                    type: 'POST',
+                    async: false,
+                    data: { 'Countryid': Countryid },
+                    success: function (data) {
+                        var items = '';
+                        $.each(data, function (i, state) {
+                            items += "<option value='" + state.Value + "'>" + state.Text + "</option>";
+                        });
+                        $('#PState').html(items);
+                    }
+                });
+            }
+            else {
+                var items = '';
+                $('#PState').html(items);
+            }
+        }
+
+        $('#PState').change(function () {
+            if ($(this).val() != '') {
+                GetCity($(this).val());
+            }
+        });
+    });
+
+    function GetCity(Stateid) {
+        if (Stateid != 0) {
+            $.ajax({
+                url: '@Url.Action("GetCity", "Employee")',
+                type: 'POST',
+                async: false,
+                data: { 'Stateid': Stateid },
+                success: function (data) {
+                    var items = '';
+                    $.each(data, function (j, city) {
+                        items += "<option value='" + city.Value + "'>" + city.Text + "</option>";
+                    });
+                    $('#PCity').html(items);
+                }
+            });
+        }
+        else {
+            var items = '';
+            $('#PCity').html(items);
+        }
+    }
+
+    function ValidEMailID(Nm) {
+        var TxtMail = document.getElementById(Nm);
+        var atpos = TxtMail.value.indexOf("@@");
+        var dotpos = TxtMail.value.lastIndexOf(".");
+        if (TxtMail.value != "" && !checkEmail(TxtMail.value)) {
+            alert('Please Insert Valid Email Address');
+            TxtMail.focus();
+            return false;
+        }
+        else if (TxtMail.value != "") {
+
+            if (atpos < 2 || dotpos < atpos + 3 || dotpos + 2 >= TxtMail.value.length) {
+                alert('Please Insert Valid Email Address');
+                TxtMail.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+    function checkEmail(email) {
+        var reg1 = /(@@.*@@)|(\.\.)|(@@\.)|(\.@@)|(^\.)/; // not valid
+        var reg2 = /^.+\@@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/; // valid
+        if (!reg1.test(email) && reg2.test(email)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>

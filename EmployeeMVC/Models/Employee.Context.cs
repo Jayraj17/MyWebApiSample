@@ -28,6 +28,7 @@ namespace EmployeeMVC.Models
         }
     
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<CityMaster> CityMasters { get; set; }
     
         public virtual ObjectResult<GetEmpDetails_Result> GetEmpDetails(string empName)
         {
