@@ -68,29 +68,39 @@ namespace DeveloperHelper2013.DBCommunication
 
         internal static DataTable GetEmployeeDetails(string EmpName, int EmpNo)
         {
+          
             try
             {
-                               
-                SqlCommand cmd = new SqlCommand();
-                SqlDataAdapter da = new SqlDataAdapter();
-                DataTable dt = new DataTable();
+
+                using (SqlConnection connection = new SqlConnection(SqlConnectionCls.ConStr))
+                {
+
+                    SqlCommand cmd = new SqlCommand();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
 
 
-                cmd.Parameters.AddWithValue("@EmpName", EmpName);
-                cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
-                cmd.CommandText = "GetEmpDetails";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = con;
-                con.Open();
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-                return dt;
+                    cmd.Parameters.AddWithValue("@EmpName", EmpName);
+                    cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
+                    cmd.CommandText = "GetEmpDetails";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Connection = connection;
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    return dt;
+                }
 
 
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
             }
 
         }
