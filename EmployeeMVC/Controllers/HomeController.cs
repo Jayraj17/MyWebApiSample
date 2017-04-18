@@ -26,5 +26,16 @@ namespace EmployeeMVC.Controllers
 
             return View();
         }
+
+        //public void GetStudentListData()
+        //{
+        //    DeveloperEntities db = new DeveloperEntities();
+        //    var Data1 = db.Students.OrderBy(s => s.Name).ToList();
+        //    if (Data1 != null)
+        //    {
+        //        ViewData["data"] = Data1;
+        //    }
+
+        //}
     }
 }
