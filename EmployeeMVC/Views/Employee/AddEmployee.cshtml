@@ -3,6 +3,13 @@
     ViewBag.Title = "Employee";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+    ViewBag.Title = "Data";
+    var data = ViewData["data"] as IEnumerable<EmployeeMVC.Models.Employee>;
+}
+
+
 @using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post, new { id = "frmEmployeeMst" }))
 {
     @Html.ValidationSummary(true)
@@ -98,7 +105,50 @@
 
         </table>
         <br />
-        @Html.Raw(ViewBag.message)        
+        @Html.Raw(ViewBag.message)  
+        
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        SymptomsId
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (EmployeeMVC.Models.Employee item in data)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EmpName)
+                                        </td>
+                                        <td>
+                                            @*@Html.ActionLink("Edit ", "Symptoms", new { id = item.StudentID })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })*@
+
+
+                                            @Html.ActionLink("Edit", "AddStudent", new { SID = item.StudentID, @class = "btn_Edit" }) |
+                                            @Html.ActionLink("Delete", "DeleteMakeList", new { SID = item.StudentID, @class = "btn_Delete" })
+
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+              
     </fieldset>
 }
     <div>
