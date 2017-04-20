@@ -21,6 +21,7 @@ namespace EmployeeMVC.Controllers
         }
         public ActionResult AddEmployee(int EmpNo = 0)
         {
+            GetEmployeeListData();
            // ViewBag.PCountryDD = Common.GetCountryMst();
            // ViewBag.PStateDD = Common.GetStateMst();
            // ViewBag.PCityDD = Common.GetCityMst();
@@ -71,6 +72,17 @@ namespace EmployeeMVC.Controllers
             {
                 return HttpNotFound();
             }
+        }
+        public void GetEmployeeListData()
+        {
+           
+            DeveloperEntities db = new DeveloperEntities();
+            var EmpData = db.Employees.Where(p => p.IsActive == 1).OrderBy(s => s.EmpName).ToList();
+            if (EmpData != null)
+            {
+                ViewData["EmpData"] = EmpData;
+            }
+
         }
 	}
 }

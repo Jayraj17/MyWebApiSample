@@ -5,8 +5,8 @@
 }
 
 @{
-    ViewBag.Title = "Data";
-    var data = ViewData["data"] as IEnumerable<EmployeeMVC.Models.Employee>;
+    ViewBag.Title = "EmpData";
+    var EmpData = ViewData["EmpData"] as IEnumerable<EmployeeMVC.Models.Employee>;
 }
 
 
@@ -116,26 +116,36 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        SymptomsId
+                                        Emp SrNo
+                                    </th>
+                                    <th>
+                                        Employee
+                                    </th>
+                                    <th>
+                                        Salary
                                     </th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @foreach (EmployeeMVC.Models.Employee item in data)
+                                @foreach (EmployeeMVC.Models.Employee item in EmpData)
                                 {
                                     <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EmpNo)
+                                        </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.EmpName)
                                         </td>
                                         <td>
-                                            @*@Html.ActionLink("Edit ", "Symptoms", new { id = item.StudentID })
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })*@
+                                            @Html.DisplayFor(modelItem => item.Salary)
+                                        </td>
+                                        <td>                               
 
 
-                                            @Html.ActionLink("Edit", "AddStudent", new { SID = item.StudentID, @class = "btn_Edit" }) |
-                                            @Html.ActionLink("Delete", "DeleteMakeList", new { SID = item.StudentID, @class = "btn_Delete" })
+                                            @Html.ActionLink("Edit", "AddEmployee", new { EmpNo = item.EmpNo, @class = "btn_Edit" }) |
+                                            @Html.ActionLink("Delete", "RemoveEmployee", new { EmpNo = item.EmpNo, @class = "btn_Delete" })
 
 
                                         </td>

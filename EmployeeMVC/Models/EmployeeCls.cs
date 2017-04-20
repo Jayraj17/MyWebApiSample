@@ -15,7 +15,7 @@ namespace EmployeeMVC.Models
         public static List<Employee> GetEmployee()
         {
             DeveloperEntities db = new DeveloperEntities();
-            List<Employee> lst = db.Employees.OrderBy(P => P.EmpName).ToList();
+            List<Employee> lst = db.Employees.Where(p=>p.IsActive==1).OrderBy(P => P.EmpName).ToList();
             return lst;
         }
 
