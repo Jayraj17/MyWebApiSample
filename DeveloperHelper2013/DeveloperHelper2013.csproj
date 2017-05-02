@@ -653,6 +653,7 @@
     <Content Include="SamplePages\MaxChar.aspx" />
     <Content Include="SamplePages\MoveRecordListBox.aspx" />
     <Content Include="SamplePages\SpecialCharNotAllow.aspx" />
+    <Content Include="SamplePages\ULLICheckBox.aspx" />
     <Content Include="SamplePages\ValidTimeCheckInCheckOut.aspx" />
     <Content Include="SamplePages\zzzdumm.aspx" />
     <Content Include="Scripts\jquery.tokeninput.js" />
@@ -860,6 +861,13 @@
     </Compile>
     <Compile Include="SamplePages\SpecialCharNotAllow.aspx.designer.cs">
       <DependentUpon>SpecialCharNotAllow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\ULLICheckBox.aspx.cs">
+      <DependentUpon>ULLICheckBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\ULLICheckBox.aspx.designer.cs">
+      <DependentUpon>ULLICheckBox.aspx</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\ValidTimeCheckInCheckOut.aspx.cs">
       <DependentUpon>ValidTimeCheckInCheckOut.aspx</DependentUpon>
