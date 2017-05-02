@@ -16,7 +16,7 @@ namespace DeveloperHelper2013.SamplePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillDetails();
+           // FillDetails();
 
         }
         public void FillDetails()
