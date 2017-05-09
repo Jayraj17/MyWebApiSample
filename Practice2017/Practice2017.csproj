@@ -65,11 +65,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Practice\Controller.aspx" />
     <Content Include="Practice\Demo1.aspx" />
     <Content Include="Script\angular.min.js" />
+    <Content Include="Script\CommonAngular.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Practice\Controller.aspx.cs">
+      <DependentUpon>Controller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Practice\Controller.aspx.designer.cs">
+      <DependentUpon>Controller.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Practice\Demo1.aspx.cs">
       <DependentUpon>Demo1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
