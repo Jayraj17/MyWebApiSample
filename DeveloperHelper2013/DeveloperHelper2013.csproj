@@ -651,6 +651,7 @@
     <Content Include="ckeditor\skins\moono\vssver2.scc" />
     <Content Include="ckeditor\vssver2.scc" />
     <Content Include="SamplePages\MaxChar.aspx" />
+    <Content Include="SamplePages\MessagePopUp.aspx" />
     <Content Include="SamplePages\MoveRecordListBox.aspx" />
     <Content Include="SamplePages\SpecialCharNotAllow.aspx" />
     <Content Include="SamplePages\ULLICheckBox.aspx" />
@@ -825,6 +826,13 @@
     </Compile>
     <Compile Include="SamplePages\MaxChar.aspx.designer.cs">
       <DependentUpon>MaxChar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\MessagePopUp.aspx.cs">
+      <DependentUpon>MessagePopUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePages\MessagePopUp.aspx.designer.cs">
+      <DependentUpon>MessagePopUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\MoveRecordListBox.aspx.cs">
       <DependentUpon>MoveRecordListBox.aspx</DependentUpon>
