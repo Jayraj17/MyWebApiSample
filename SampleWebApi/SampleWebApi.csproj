@@ -102,6 +102,7 @@
     <Compile Include="Controllers\CountryCnrl\CountryApiController.cs" />
     <Compile Include="Controllers\EmpCnrl\EmpApiController.cs" />
     <Compile Include="Controllers\Product\ProductAPIController.cs" />
+    <Compile Include="DBHelpter\DBCommunication.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
