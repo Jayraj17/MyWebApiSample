@@ -1,0 +1,83 @@
+========================================================Particular ============================================== 
+var spn = $(elem).parents('tr').find(".notclickable");
+                    var td = spn.parents('td')
+                    spn.remove();
+                    td.append('<span class="notclickable">NA</span>');
+
+=======================================================DDL All Value
+ var ServiceIDs = "";
+        $("#ddlCenter option").each(function () {
+            ServiceIDs = +$(this).val() + ",";
+        });
+       ServiceIDs.lastIndexOf(",")
+===============================================================
+
+        var values = $('#ddlCenter').children('option').map(function (i, e) {
+            return e.innerText;
+        }).get();
+
+==============================================FORM
+ <form action="" method="post" class="wpcf7-form wpcf7-acceptance-as-validation" id="frmCentrePayment" parsley-validate="" enctype="multipart/form-data" novalidate="novalidate">
+
+ var formData = $('#frmCentrePayment').serializeN();
+                    var ProName = '';
+                    ProName = $.map($("#ddlProductName option:selected"), function (el, i) {
+                        return $(el).text();
+                    });
+                    ProName = ProName.join(',');
+                    var GstAmt = $("#TotalAmount").text();
+                    formData.push({ ProductName: ProName });
+                    formData.push({ name: 'GSTAmount', value: GstAmt });
+                    $.ajax({
+                        type: 'POST',
+                        url: "@Url.Action("Registration", "Registration")",
+                        data: formData,
+                        global: false,
+                        success: function (responce) {
+                            $("#tdspinner").hide();
+
+                            if (responce.ID > 0) {
+                                $("#ErrorMessages").hide();
+                                $("#SuccessMessages").show();
+                                $("#SuccessMsg").html(responce.Msg);
+
+                                $("input, select").val("");
+                                $(":checkbox").prop("checked", true);
+                            }
+                            else {
+                                $("#SuccessMessages").hide();
+                                $("#ErrorMessages").show();
+                                $("#errorMsg").html(responce.Msg);
+                            }
+
+                            $('.Register').css("cursor", "pointer");
+                            $('.Register').prop('disabled', false);
+
+                            $(".quote-popup-book-demo").animate({
+                                scrollTop: 0,
+                                scrollLeft: 0
+                            }, 800);
+                        },
+                        error: function (response) {
+                            $("#tdspinner").hide();
+                            $('.Register').css("cursor", "pointer");
+                            $('.Register').prop('disabled', false);
+                            $("#ErrorMessages").show();
+                            $("#errorMsg").html(responce.responceText);
+
+                            $(".quote-popup-book-demo").animate({
+                                scrollTop: 0,
+                                scrollLeft: 0
+                            }, 800);
+                        }
+                    });
+                }
+                else {
+                    $("#ErrorMessages").show();
+                    $("#errorMsg").html('Please agree to Licence, Privacy Policy, and Terms & Conditions');
+                    $(".quote-popup-book-demo").animate({
+                        scrollTop: 0,
+                        scrollLeft: 0
+                    }, 800);
+                }
+            });
