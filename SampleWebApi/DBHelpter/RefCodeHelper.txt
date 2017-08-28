@@ -1,0 +1,17 @@
+======================================================Loop
+ model.objlstTakeChildAttendanceDTO.ForEach(item =>
+                {
+                    isAlreadyTimeOut = ((!string.IsNullOrEmpty(item.StrTimeOut)) || !(item.IsPresent.HasValue ? item.IsPresent.Value : true));
+                    enableSignOut = enableSignOut ? enableSignOut : (isAlreadyTimeOut ? false : (!string.IsNullOrEmpty(item.StrTimeIn)));
+ });
+====================================================Thread
+
+Task.Run(() => QueryAttandence(servicetypeids, centreid)).ConfigureAwait(false);
+
+==================================================SPLT
+  string[] arrServiceTypeID = !string.IsNullOrEmpty(servicetypeids) ? servicetypeids.Split(',') : new string[] { };
+
+=================================================WeekEND
+     DateTime curr_fin_year = new DateTime(DateTime.UtcNow.Year, 7, 1);
+                    DateTime weekending = curr_fin_year.ToWeekEndDate();
+==============================================
